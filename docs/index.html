@@ -1,0 +1,762 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="BI developer with nearly five years of Qlik Sense experience at Grupa Maspex, since April 2026 also working as a Junior Data Engineer on Databricks and Azure DevOps. Before moving into data, I spent over six years in production planning and logistics at Grupa Kęty, so I build reports and data flows with the business user in mind. I focus on reliable data processes, performance and data quality.">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Michał Tworowski – CV">
+<meta property="og:description" content="BI developer with nearly five years of Qlik Sense experience at Grupa Maspex, since April 2026 also working as a Junior Data Engineer on Databricks and Azure DevOps. Before moving into data, I spent over six years in production planning and logistics at Grupa Kęty, so I build reports and data flows with the business user in mind. I focus on reliable data processes, performance and data quality.">
+<meta name="robots" content="noindex, nofollow">
+<title>Michał Tworowski CV</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
+<style>
+/* Layout: identity band → profile + figures → career timeline (scheduler-style lanes) → experience | sidebar.
+   Print/PDF collapses everything into one plain A4 column without charts. */
+:root {
+  --bg: #F3F5F6;
+  --surface: #FFFFFF;
+  --ink: #14202A;
+  --ink-2: #3D4B57;
+  --muted: #5A6773;
+  --line: #DAE0E4;
+  --accent: #0D6E89;
+  --accent-ink: #FFFFFF;
+  --accent-tint: #E1EEF2;
+  --past: #7A8A96;
+  --track: #D0E3E9;
+
+  --font-sans: "IBM Plex Sans", "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+
+  --step--2: 0.6875rem;
+  --step--1: 0.8125rem;
+  --step-0: 0.9375rem;
+  --step-1: 1.0625rem;
+  --step-2: 1.3125rem;
+  --radius: 10px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0E1418;
+    --surface: #151D23;
+    --ink: #E3E9ED;
+    --ink-2: #B7C2CA;
+    --muted: #8D9AA5;
+    --line: #26323B;
+    --accent: #5DB9D4;
+    --accent-ink: #0A1A20;
+    --accent-tint: #173039;
+    --past: #64737F;
+    --track: #213C46;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0E1418;
+  --surface: #151D23;
+  --ink: #E3E9ED;
+  --ink-2: #B7C2CA;
+  --muted: #8D9AA5;
+  --line: #26323B;
+  --accent: #5DB9D4;
+  --accent-ink: #0A1A20;
+  --accent-tint: #173039;
+  --past: #64737F;
+  --track: #213C46;
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: var(--step-0);
+  line-height: 1.55;
+}
+[hidden] { display: none !important; }
+img { max-width: 100%; }
+a { color: var(--accent); text-underline-offset: 3px; text-decoration-thickness: 1px; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+
+.wrap {
+  max-width: 1100px;
+  margin-inline: auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+
+/* ---------- Identity band ---------- */
+.hero { background: var(--surface); border-bottom: 1px solid var(--line); }
+.hero-inner {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 20px 28px;
+  align-items: center;
+  padding-block: 32px 28px;
+}
+.photo {
+  display: block;
+  width: 120px;
+  height: 120px;
+  border-radius: 16px;
+  object-fit: cover;
+  background: var(--line);
+}
+h1 {
+  margin: 0;
+  font-size: clamp(2rem, 1.4rem + 2.2vw, 2.75rem);
+  line-height: 1.1;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+.headline { margin: 6px 0 0; font-size: var(--step-1); font-weight: 500; color: var(--accent); }
+.contact {
+  list-style: none;
+  margin: 14px 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 20px;
+  font-size: var(--step--1);
+  color: var(--ink-2);
+}
+.contact li { display: inline-flex; align-items: center; gap: 8px; min-width: 0; overflow-wrap: anywhere; }
+.contact .k { font-family: var(--font-mono); font-size: var(--step--2); letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+
+.controls { display: flex; flex-direction: column; align-items: flex-end; gap: 10px; align-self: start; }
+.lang { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; padding: 3px; background: var(--bg); }
+.lang button {
+  font: 500 0.8125rem/1 var(--font-mono);
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  padding: 8px 13px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+.lang button:hover { color: var(--ink); }
+.lang button[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--step--1);
+  font-weight: 500;
+  padding: 8px 15px;
+  border-radius: 999px;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  text-decoration: none;
+}
+.btn:hover { background: var(--accent-tint); }
+.btn svg { width: 14px; height: 14px; }
+.copy {
+  font: 500 var(--step--2)/1 var(--font-mono);
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--muted);
+  border-radius: 6px;
+  padding: 4px 8px;
+  cursor: pointer;
+}
+.copy:hover { color: var(--ink); border-color: var(--muted); }
+
+/* ---------- Page body ---------- */
+main.wrap { display: grid; gap: 44px; padding-block: 36px 12px; }
+h2 {
+  margin: 0 0 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--line);
+  font: 500 0.75rem/1.2 var(--font-mono);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.intro { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 32px 44px; align-items: start; }
+.summary p { margin: 0; max-width: 62ch; font-size: var(--step-1); line-height: 1.65; color: var(--ink-2); }
+.figs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.fig { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 14px 16px 15px; }
+.fig-val { font-size: 1.75rem; line-height: 1.1; font-weight: 600; letter-spacing: -0.01em; color: var(--ink); }
+.fig-lbl { margin-top: 6px; font-size: var(--step--1); line-height: 1.4; color: var(--muted); }
+
+/* ---------- Career timeline ---------- */
+.tl-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px 24px 14px; }
+.tl-top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 6px 20px; margin-bottom: 6px; }
+.tl-note { margin: 0; font-size: var(--step--1); color: var(--muted); }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: var(--step--1); color: var(--ink-2); }
+.legend span { display: inline-flex; align-items: center; gap: 7px; }
+.sw { display: inline-block; width: 16px; height: 8px; border-radius: 2px; background: var(--past); }
+.sw.current { background: var(--accent); }
+
+.tl-plot { position: relative; padding-top: 22px; padding-bottom: 30px; }
+.tl-group {
+  margin: 12px 0 2px;
+  font: 500 var(--step--2)/1.3 var(--font-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.tl-group:first-of-type { margin-top: 0; }
+.lane { display: block; padding: 7px 8px 8px; margin-inline: -8px; border-radius: 8px; color: inherit; text-decoration: none; }
+.lane:hover { background: var(--accent-tint); }
+.lane-label { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 12px; font-size: var(--step--1); }
+.lane-title { font-weight: 500; color: var(--ink); }
+.lane-dates { font: 400 0.75rem var(--font-mono); color: var(--muted); font-variant-numeric: tabular-nums; }
+.track { position: relative; display: block; height: 10px; margin-top: 6px; }
+.track::before { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 1px; background: var(--line); }
+.bar { position: absolute; top: 0; bottom: 0; min-width: 6px; border-radius: 3px; background: var(--past); }
+.bar.current { background: var(--accent); }
+.axis { position: absolute; left: 0; right: 0; bottom: 0; height: 24px; border-top: 1px solid var(--line); }
+.tick {
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%);
+  padding-top: 7px;
+  font: 400 0.6875rem/1 var(--font-mono);
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+.tick::before { content: ""; position: absolute; left: 50%; top: 0; width: 1px; height: 4px; background: var(--line); }
+.now { position: absolute; top: 18px; bottom: 24px; width: 0; border-left: 1px solid var(--accent); }
+.now span {
+  position: absolute;
+  top: -18px;
+  right: 5px;
+  font: 500 0.6875rem/1 var(--font-mono);
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+/* ---------- Experience + sidebar ---------- */
+.cols { display: grid; grid-template-columns: minmax(0, 1.75fr) minmax(0, 1fr); gap: 44px 52px; align-items: start; }
+.side { display: grid; gap: 34px; }
+
+.job { display: grid; gap: 16px; padding-bottom: 28px; scroll-margin-top: 16px; }
+.job + .job { padding-top: 26px; border-top: 1px solid var(--line); }
+.job h3 { margin: 0; font-size: var(--step-2); line-height: 1.25; font-weight: 600; }
+.team { margin: 3px 0 0; font-size: var(--step--1); color: var(--muted); }
+.positions { display: grid; gap: 22px; }
+.positions.compact { gap: 8px; }
+.pos { display: grid; gap: 8px; }
+.pos-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 2px 16px; }
+.pos h4 { margin: 0; font-size: var(--step-1); font-weight: 600; line-height: 1.35; }
+.pos h4.current::before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-right: 9px;
+  border-radius: 50%;
+  background: var(--accent);
+  vertical-align: 2px;
+}
+.dates { font: 400 0.8125rem var(--font-mono); color: var(--muted); font-variant-numeric: tabular-nums; }
+h5 {
+  margin: 6px 0 2px;
+  font: 500 var(--step--2)/1.3 var(--font-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.bul { margin: 0; padding: 0; list-style: none; display: grid; gap: 5px; }
+/* Markers are grid items, not positioned boxes: positioned list items would be painted
+   after the rest of the page and scramble the PDF's text order for ATS parsers. */
+.bul li { display: grid; grid-template-columns: 20px minmax(0, 1fr); color: var(--ink-2); }
+.bul li::before { content: ""; justify-self: start; margin: 0.72em 0 0 3px; width: 7px; height: 1.5px; background: var(--muted); }
+.bul.ach li { color: var(--ink); }
+.bul.ach li::before { margin-top: 0.5em; width: 8px; height: 8px; border-radius: 2px; background: var(--accent); }
+
+.skill-group + .skill-group { margin-top: 18px; }
+.skill-group h3 { margin: 0 0 8px; font-size: var(--step-0); font-weight: 600; }
+.skill-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.skill-list li { display: grid; grid-template-columns: minmax(0, 1fr) auto 5.75rem; align-items: center; gap: 12px; font-size: var(--step--1); }
+.sk-name { min-width: 0; color: var(--ink); }
+.meter { display: inline-flex; gap: 2px; }
+.meter i { display: block; width: 16px; height: 6px; border-radius: 2px; background: var(--track); }
+.meter i.on { background: var(--accent); }
+.sk-lvl { font: 400 0.75rem var(--font-mono); color: var(--muted); }
+
+.plain { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; font-size: var(--step--1); color: var(--ink-2); }
+.plain .t { display: block; font-size: var(--step-0); font-weight: 600; color: var(--ink); }
+.plain .m { font: 400 0.75rem var(--font-mono); color: var(--muted); font-variant-numeric: tabular-nums; }
+.inline-kv { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+.interests { margin: 0; font-size: var(--step--1); color: var(--ink-2); }
+
+.gdpr { margin: 0; font-size: 0.6875rem; line-height: 1.4; color: var(--muted); }
+.foot { padding-block: 22px 40px; font-size: var(--step--1); color: var(--muted); }
+.foot-inner { border-top: 1px solid var(--line); padding-top: 18px; display: flex; flex-wrap: wrap; gap: 6px 18px; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .cols { grid-template-columns: minmax(0, 1fr); }
+  .intro { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 680px) {
+  .hero-inner { grid-template-columns: auto minmax(0, 1fr); padding-block: 18px 22px; gap: 16px 18px; }
+  .controls { grid-column: 1 / -1; grid-row: 1; flex-direction: row; justify-content: space-between; align-items: center; }
+  .photo { width: 84px; height: 84px; border-radius: 12px; }
+  .tl-card { padding: 16px 18px 12px; }
+  .tick.minor { display: none; }
+  main.wrap { gap: 36px; padding-block: 28px 8px; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .lane, .btn, .lang button { transition: background-color 0.15s ease, color 0.15s ease; }
+}
+
+/* ---------- Print / PDF: one plain A4 column ---------- */
+@page { size: A4; margin: 13mm 14mm 13mm; }
+@media print {
+  /* triple :root beats the dark-mode selectors, so paper is always light */
+  :root:root:root {
+    --bg: #FFFFFF;
+    --surface: #FFFFFF;
+    --ink: #111B23;
+    --ink-2: #2C3943;
+    --muted: #4E5A65;
+    --line: #D3DADF;
+    --accent: #0D6E89;
+    color-scheme: light;
+  }
+  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { font-size: 9.3pt; line-height: 1.38; background: #FFFFFF; }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: none; padding: 0; }
+  .controls, .copy, .figs-sec, .tl-sec, .foot, .meter { display: none !important; }
+
+  .hero { background: none; border-bottom: 1px solid var(--line); }
+  .hero-inner { grid-template-columns: auto minmax(0, 1fr); gap: 0 14pt; padding-block: 0 9pt; }
+  .photo { width: 23mm; height: 23mm; border-radius: 3mm; }
+  h1 { font-size: 20pt; }
+  .headline { font-size: 10.5pt; margin-top: 2pt; }
+  .contact { margin-top: 6pt; gap: 2pt 14pt; font-size: 8.6pt; }
+
+  main.wrap { display: block; padding: 0; }
+  main.wrap > * + * { margin-top: 11pt; }
+  .intro { display: block; margin-top: 10pt; }
+  .summary p { font-size: 9.3pt; line-height: 1.45; max-width: none; }
+  h2 { font-size: 7.6pt; margin: 0 0 6pt; padding-bottom: 3pt; }
+
+  .cols { display: block; }
+  .side { display: block; }
+  .side > section { margin-top: 11pt; }
+  .job { gap: 6pt; padding-bottom: 8pt; }
+  .job + .job { padding-top: 8pt; }
+  .job h3 { font-size: 11pt; }
+  .team { font-size: 8.4pt; }
+  .positions { gap: 8pt; }
+  .positions.compact { gap: 1pt; }
+  .pos { gap: 3pt; }
+  .pos h4 { font-size: 9.8pt; }
+  .dates { font-size: 8.2pt; }
+  h5 { font-size: 6.8pt; margin: 2pt 0 0; }
+  .bul { gap: 1.5pt; }
+  .bul li { grid-template-columns: 12pt minmax(0, 1fr); }
+  .bul li::before { margin-left: 1pt; }
+  .inline-kv { display: block; }
+
+  .skill-group + .skill-group { margin-top: 2pt; }
+  .skill-group h3 { display: inline; font-size: 9.3pt; }
+  .skill-group h3::after { content: ": "; }
+  .skill-list, .skill-list li { display: inline; }
+  .skill-list li:not(:last-child)::after { content: ", "; }
+  .sk-lvl { font: inherit; color: var(--muted); }
+  .sk-lvl::before { content: " ("; }
+  .sk-lvl::after { content: ")"; }
+
+  .plain { gap: 4pt; font-size: 9pt; }
+  .plain .t { display: inline; font-size: 9.3pt; }
+  .plain .t::after { content: " · "; font-weight: 400; color: var(--muted); }
+  .gdpr { margin-top: 14pt; font-size: 7pt; }
+
+  .pos-head, h2, h3, h4, h5 { break-after: avoid; }
+  .bul li, .plain li, .skill-group { break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap hero-inner">
+    <img class="photo" id="photo" alt="" width="120" height="120">
+    <div class="identity">
+      <h1 id="name"></h1>
+      <p class="headline" id="headline"></p>
+      <ul class="contact" id="contact"></ul>
+    </div>
+    <div class="controls">
+      <div class="lang" role="group" id="lang-group">
+        <button type="button" id="lang-en" data-lang="en" aria-pressed="false">EN</button>
+        <button type="button" id="lang-pl" data-lang="pl" aria-pressed="false">PL</button>
+      </div>
+      <a class="btn" id="pdf-link" target="_blank" rel="noopener" hidden>
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v8m0 0L5 7m3 3l3-3M3 13h10"/></svg>
+        <span id="pdf-label"></span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="intro">
+    <div class="summary">
+      <h2 data-i18n="profile"></h2>
+      <p id="summary"></p>
+    </div>
+    <div class="figs-sec">
+      <h2 data-i18n="figures"></h2>
+      <div class="figs" id="figs"></div>
+    </div>
+  </section>
+
+  <section class="tl-sec" aria-labelledby="tl-h">
+    <h2 id="tl-h" data-i18n="timeline"></h2>
+    <div class="tl-card">
+      <div class="tl-top">
+        <p class="tl-note" data-i18n="timelineNote"></p>
+        <div class="legend">
+          <span><i class="sw current"></i><span data-i18n="legendCurrent"></span></span>
+          <span><i class="sw"></i><span data-i18n="legendPast"></span></span>
+        </div>
+      </div>
+      <div class="tl-plot" id="timeline"></div>
+    </div>
+  </section>
+
+  <div class="cols">
+    <section class="experience" aria-labelledby="exp-h">
+      <h2 id="exp-h" data-i18n="experience"></h2>
+      <div id="experience"></div>
+    </section>
+    <aside class="side">
+      <section><h2 data-i18n="skills"></h2><div id="skills"></div></section>
+      <section><h2 data-i18n="languages"></h2><ul class="plain" id="languages"></ul></section>
+      <section><h2 data-i18n="education"></h2><ul class="plain" id="education"></ul></section>
+      <section><h2 data-i18n="courses"></h2><ul class="plain" id="courses"></ul></section>
+      <section><h2 data-i18n="interests"></h2><p class="interests" id="interests"></p></section>
+    </aside>
+  </div>
+
+  <p class="gdpr" id="gdpr" hidden></p>
+</main>
+
+<footer class="wrap foot"><div class="foot-inner" id="foot"></div></footer>
+
+<script id="cv-data" type="application/json">{"cv": {"site": {"noindex": true}, "basics": {"name": "Michał Tworowski", "headline": "Qlik Sense Developer · Junior Data Engineer", "email": "michal.tworowski@op.pl", "location": {"en": "Bielsko-Biała, Poland", "pl": "Bielsko-Biała"}, "linkedin": null, "github": null, "photo": "data:image/jpeg;base64,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", "summary": {"en": "BI developer with nearly five years of Qlik Sense experience at Grupa Maspex, since April 2026 also working as a Junior Data Engineer on Databricks and Azure DevOps. Before moving into data, I spent over six years in production planning and logistics at Grupa Kęty, so I build reports and data flows with the business user in mind. I focus on reliable data processes, performance and data quality.", "pl": "Developer BI z blisko pięcioletnim doświadczeniem w Qlik Sense w Grupie Maspex, od kwietnia 2026 także Junior Data Engineer (Databricks, Azure DevOps). Wcześniej ponad sześć lat w planowaniu produkcji i logistyce w Grupie Kęty – dzięki temu projektuję raporty i przepływy danych z perspektywy ich odbiorców. Skupiam się na niezawodności procesów danych, wydajności i jakości danych."}}, "highlights": [{"value": "50+", "label": {"en": "reports delivered and maintained", "pl": "wdrożonych i utrzymywanych raportów"}}, {"value": "400M+", "label": {"en": "records in a key report's ETL", "pl": "rekordów w ETL kluczowego raportu"}}, {"value": "150+", "label": {"en": "daily users of that report", "pl": "użytkowników tego raportu dziennie"}}, {"value": ">10 GB", "label": {"en": "of data, ready before 9:00 AM every day", "pl": "danych, gotowych codziennie przed 9:00"}}], "work": [{"company": "Grupa Maspex sp. z o.o.", "positions": [{"title": "Junior Data Engineer", "start": "2026-04", "end": "present", "responsibilities": [{"en": "Building data pipelines on the Databricks platform", "pl": "Tworzenie przepływów danych na platformie Databricks"}, {"en": "Creating and automating processes, e.g. copying data between the PRD and TST landing zones", "pl": "Tworzenie i automatyzacja procesów, m.in. kopiowanie danych pomiędzy landing zone środowisk PRD i TST"}, {"en": "Working in the Azure DevOps environment", "pl": "Praca w środowisku Azure DevOps"}, {"en": "Creating technical documentation and standard operating procedures (SOPs)", "pl": "Tworzenie dokumentacji technicznej oraz procedur SOP"}], "achievements": []}, {"title": "Qlik Sense Developer", "start": "2021-12", "end": "present", "responsibilities": [{"en": "Creating reports and data visualizations for internal clients", "pl": "Tworzenie raportów i wizualizacji dla klientów wewnętrznych"}, {"en": "Developing tools to improve Data Quality teams' efficiency (e.g. day-to-day data comparators, monitoring data volume changes)", "pl": "Opracowywanie narzędzi usprawniających pracę zespołów Data Quality (np. porównywarki danych dzień do dnia, monitorowanie zmian wolumenów)"}, {"en": "Building administrative tools (scheduler load overview, disk space monitoring, estimation of reload times for end-user applications)", "pl": "Tworzenie narzędzi administracyjnych (podgląd obciążenia schedulerów, monitorowanie przestrzeni dyskowej, szacowanie czasu przeładowań aplikacji końcowych)"}, {"en": "Diagnosing and fixing issues (including bugs after code changes, performance bottlenecks, RAM problems)", "pl": "Diagnozowanie i usuwanie błędów (m.in. błędy wynikające ze zmian w kodzie, wąskie gardła, problemy z pamięcią RAM)"}, {"en": "Designing and developing data models", "pl": "Budowa i rozwój modeli danych"}, {"en": "Optimizing report code to improve performance and reduce loading time", "pl": "Optymalizacja kodu w raportach w celu poprawy wydajności i skrócenia czasu ładowania"}, {"en": "Configuring alerts using the Alerting and NPrinting modules", "pl": "Konfiguracja alertów z wykorzystaniem modułów Alerting i NPrinting"}, {"en": "Preparing business analyses", "pl": "Przygotowywanie analiz biznesowych"}, {"en": "Maintaining and administering reporting applications", "pl": "Utrzymanie i administracja istniejących aplikacji raportowych"}, {"en": "End-user support (helpdesk) and communication with report users", "pl": "Wsparcie użytkowników końcowych (helpdesk) i kontakt z odbiorcami raportów"}, {"en": "Creating project documentation and user manuals", "pl": "Tworzenie dokumentacji projektowej i instrukcji użytkownika"}], "achievements": [{"en": "Implemented and maintained over 50 reports in SCM, Procurement, Commercial and Data Analysis areas", "pl": "Wdrożenie i utrzymanie ponad 50 raportów w obszarach SCM, Zakupy, Commercial, Analiza Danych"}, {"en": "Stabilized the ETL process for a key report (over 400M records, 150+ daily users, >10 GB of data); the report is ready before 9:00 AM every day", "pl": "Ustabilizowanie procesu ETL dla kluczowego raportu (ponad 400 mln rekordów, >150 użytkowników dziennie, >10 GB danych); raport gotowy codziennie do godziny 9:00"}, {"en": "Recommended migrating from the Alerting module to an NPrinting-based alerting solution, resulting in cost savings", "pl": "Rekomendacja migracji z modułu Alerting na rozwiązanie alertowania oparte o NPrinting, co przyniosło oszczędności"}]}]}, {"company": "Grupa Kęty S.A.", "team": {"en": "Production Planning Department, Advanced Aluminum Products Plant", "pl": "Dział Planowania Produkcji, Zakład Zaawansowanych Produktów Aluminiowych"}, "positions": [{"title": {"en": "Production Accounting Specialist", "pl": "Specjalista ds. rozliczania produkcji"}, "start": "2021-01", "end": "2021-12"}, {"title": {"en": "Logistics and Production Planning Coordinator", "pl": "Koordynator ds. logistyki i planowania produkcji"}, "start": "2015-09", "end": "2021-01"}, {"title": {"en": "Intern – Assistant Manager, Logistics and Planning Department", "pl": "Staż – Asystent kierownika w dziale logistyki i planowania"}, "start": "2015-04", "end": "2015-09"}], "responsibilities": [{"en": "Creating reports and SQL scripts", "pl": "Tworzenie raportów oraz skryptów w języku SQL"}, {"en": "Developing tools to support production supervision (VBA, PL/SQL)", "pl": "Tworzenie narzędzi usprawniających nadzór nad produkcją (VBA oraz PL/SQL)"}, {"en": "Long-term planning – analyzing customer plans against production capacity", "pl": "Planowanie długoterminowe – analiza planów klienta w oparciu o możliwości produkcyjne"}, {"en": "Preparing daily production schedules", "pl": "Tworzenie dobowych planów produkcji"}, {"en": "Supervising order execution for individual customers", "pl": "Nadzorowanie realizacji zamówień dla poszczególnych klientów"}, {"en": "Coordinating the internal logistics team and supervising inventory teams", "pl": "Koordynowanie zespołu logistyki wewnątrzzakładowej i nadzorowanie zespołów inwentaryzacyjnych"}, {"en": "Preparing production documentation", "pl": "Tworzenie dokumentacji produkcyjnej"}, {"en": "Production accounting – efficiency analysis", "pl": "Rozliczanie produkcji – analiza wydajności"}, {"en": "Managing warehouse stock levels", "pl": "Opieka nad stanami magazynowymi"}], "achievements": [{"en": "Implemented an application for monitoring production KPIs using SQL and MES software", "pl": "Wdrożenie aplikacji monitorującej wskaźniki produkcyjne przy wykorzystaniu języka SQL oraz oprogramowania klasy MES"}, {"en": "Implemented a tool for monitoring packaging stock levels", "pl": "Wdrożenie narzędzia pozwalającego nadzorować stan magazynowy opakowań"}, {"en": "Implemented a tool generating material orders based on the current production plan", "pl": "Wdrożenie narzędzia generującego zamówienia materiałowe według potrzeb bieżącego planu produkcyjnego"}]}], "skills": [{"category": {"en": "Data Engineering", "pl": "Data Engineering"}, "items": [{"name": "Databricks", "level": "junior"}, {"name": "Azure DevOps", "level": "junior"}]}, {"category": {"en": "BI & Reporting", "pl": "BI i raportowanie"}, "items": [{"name": "Qlik Sense", "level": "mid/senior"}, {"name": "QMC (Qlik Management Console)", "level": "mid/senior"}, {"name": "NPrinting", "level": "mid"}, {"name": "Qlik Alerting", "level": "mid"}, {"name": "Power BI", "level": "junior"}]}, {"category": {"en": "Languages & Code", "pl": "Języki i kod"}, "items": [{"name": "SQL", "level": "mid"}, {"name": "PL/SQL", "level": "mid"}, {"name": "Python", "level": "junior"}, {"name": "VBA", "level": "junior"}]}, {"category": {"en": "Tools", "pl": "Narzędzia"}, "items": [{"name": "Git", "level": "mid"}, {"name": "CSS", "level": "junior"}]}], "languages": [{"name": {"en": "Polish", "pl": "polski"}, "level": {"en": "native", "pl": "ojczysty"}}, {"name": {"en": "English", "pl": "angielski"}, "level": "B2"}], "education": [{"institution": {"en": "University of Economics in Katowice", "pl": "Uniwersytet Ekonomiczny w Katowicach"}, "area": {"en": "Machine Learning and Data Science", "pl": "Uczenie maszynowe i Data Science"}, "degree": {"en": "Postgraduate studies", "pl": "Studia podyplomowe"}, "end": 2024}, {"institution": {"en": "University of Bielsko-Biała", "pl": "Uniwersytet Bielsko-Bialski"}, "area": {"en": "Management and Production Engineering", "pl": "Zarządzanie i inżynieria produkcji"}, "degree": {"en": "Master's degree", "pl": "Studia II stopnia"}, "start": 2017, "end": 2019}, {"institution": {"en": "University of Bielsko-Biała", "pl": "Uniwersytet Bielsko-Bialski"}, "area": {"en": "Management and Production Engineering", "pl": "Zarządzanie i inżynieria produkcji"}, "degree": {"en": "Bachelor's degree", "pl": "Studia I stopnia"}, "start": 2010, "end": 2014}], "courses": [{"name": "SQL Fundamentals", "provider": "Dataquest"}, {"name": "Python: Basics for Data Analysis", "provider": "Dataquest"}, {"name": "Poznaj świat baz danych", "description": {"en": "SQL databases from scratch", "pl": "kurs baz danych SQL od podstaw"}}], "interests": {"en": ["Sports", "Programming", "Music", "Travelling"], "pl": ["Sport", "Programowanie", "Muzyka", "Podróże"]}}, "build": {"mode": "web", "generated": "2026-11-20", "pdf": {"en": "Michal_Tworowski_CV_EN.pdf", "pl": "Michal_Tworowski_CV_PL.pdf"}, "repo": null}}</script>
+<script>
+(() => {
+  'use strict';
+  const payload = JSON.parse(document.getElementById('cv-data').textContent);
+  const cv = payload.cv;
+  const build = payload.build || {};
+  const isPrint = build.mode === 'print';
+
+  const UI = {
+    en: {
+      profile: 'Profile', figures: 'Selected results', timeline: 'Career timeline',
+      timelineNote: 'One bar per role. Select a role to jump to its details.',
+      legendCurrent: 'Current role', legendPast: 'Previous role', today: 'today',
+      experience: 'Experience', responsibilities: 'Responsibilities', achievements: 'Achievements',
+      skills: 'Skills', languages: 'Languages', education: 'Education', courses: 'Courses',
+      interests: 'Interests', present: 'present', download: 'Download PDF', copy: 'Copy',
+      copied: 'Copied', updated: 'Last updated', source: 'Built from cv.yaml', langGroup: 'Language',
+      email: 'Email', phone: 'Phone', location: 'Based in'
+    },
+    pl: {
+      profile: 'Profil', figures: 'Wybrane wyniki', timeline: 'Przebieg kariery',
+      timelineNote: 'Jeden pasek to jedno stanowisko. Wybierz je, aby przejść do szczegółów.',
+      legendCurrent: 'Obecne stanowisko', legendPast: 'Poprzednie stanowisko', today: 'dziś',
+      experience: 'Doświadczenie', responsibilities: 'Obowiązki', achievements: 'Osiągnięcia',
+      skills: 'Umiejętności', languages: 'Języki', education: 'Wykształcenie', courses: 'Kursy',
+      interests: 'Zainteresowania', present: 'obecnie', download: 'Pobierz PDF', copy: 'Kopiuj',
+      copied: 'Skopiowano', updated: 'Ostatnia aktualizacja', source: 'Generowane z cv.yaml', langGroup: 'Język',
+      email: 'E-mail', phone: 'Telefon', location: 'Lokalizacja'
+    }
+  };
+  const MONTHS_EN = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  const LEVELS = ['junior', 'mid', 'mid/senior', 'senior'];
+
+  const storage = {
+    get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
+    set(k, v) { try { localStorage.setItem(k, v); } catch (e) { /* storage unavailable */ } }
+  };
+  const isLang = (v) => v === 'en' || v === 'pl';
+
+  function pickLang() {
+    if (isLang(build.lang)) return build.lang;
+    let q = null;
+    try { q = new URLSearchParams(location.search).get('lang'); } catch (e) { /* ignore */ }
+    if (isLang(q)) return q;
+    const hsh = location.hash.replace('#', '');
+    if (isLang(hsh)) return hsh;
+    const saved = storage.get('cv-lang');
+    if (isLang(saved)) return saved;
+    return (navigator.language || '').toLowerCase().startsWith('pl') ? 'pl' : 'en';
+  }
+
+  let lang = pickLang();
+  const ui = () => UI[lang];
+  const tr = (v) => {
+    if (v == null) return '';
+    if (typeof v === 'object' && !Array.isArray(v)) return v[lang] ?? v.en ?? '';
+    return String(v);
+  };
+  const $ = (id) => document.getElementById(id);
+
+  function h(tag, attrs, ...kids) {
+    const e = document.createElement(tag);
+    if (attrs) {
+      for (const [k, v] of Object.entries(attrs)) {
+        if (v == null || v === false) continue;
+        if (k === 'class') e.className = v;
+        else if (k === 'style') e.style.cssText = v;
+        else e.setAttribute(k, v === true ? '' : v);
+      }
+    }
+    for (const kid of kids.flat(Infinity)) {
+      if (kid == null || kid === false || kid === '') continue;
+      e.append(kid instanceof Node ? kid : document.createTextNode(String(kid)));
+    }
+    return e;
+  }
+
+  /* ---------- dates ---------- */
+  const NOW = new Date();
+  const NOW_IDX = NOW.getFullYear() * 12 + NOW.getMonth();
+  const monthIdx = (s) => {
+    const [y, m] = String(s).split('-').map(Number);
+    return y * 12 + ((m || 1) - 1);
+  };
+  const isPresent = (p) => p.end === 'present' || p.end == null;
+  function fmtDate(s) {
+    if (s === 'present') return ui().present;
+    const [y, m] = String(s).split('-');
+    if (!m) return y;
+    return lang === 'pl' ? `${m}.${y}` : `${MONTHS_EN[Number(m) - 1]} ${y}`;
+  }
+  // Past roles count both the first and the last month; current roles count elapsed months.
+  const durationMonths = (p) => isPresent(p) ? NOW_IDX - monthIdx(p.start) : monthIdx(p.end) - monthIdx(p.start) + 1;
+  function fmtDuration(n) {
+    const y = Math.floor(n / 12), m = n % 12;
+    const parts = [];
+    if (lang === 'pl') {
+      if (y) {
+        const word = y === 1 ? 'rok' : ([2, 3, 4].includes(y % 10) && ![12, 13, 14].includes(y % 100)) ? 'lata' : 'lat';
+        parts.push(`${y} ${word}`);
+      }
+      if (m || !y) parts.push(`${Math.max(m, 1)} mies.`);
+    } else {
+      if (y) parts.push(`${y} yr${y > 1 ? 's' : ''}`);
+      if (m || !y) parts.push(`${Math.max(m, 1)} mo${Math.max(m, 1) > 1 ? 's' : ''}`);
+    }
+    return parts.join(' ');
+  }
+  const range = (p) => `${fmtDate(p.start)} – ${fmtDate(isPresent(p) ? 'present' : p.end)}`;
+  function fmtGenerated(iso) {
+    if (!iso) return '';
+    const [y, m, d] = iso.split('-');
+    return lang === 'pl' ? `${d}.${m}.${y}` : `${Number(d)} ${MONTHS_EN[Number(m) - 1]} ${y}`;
+  }
+
+  /* ---------- sections ---------- */
+  function renderHeader() {
+    const b = cv.basics;
+    const photo = $('photo');
+    if (b.photo) { photo.src = b.photo; photo.alt = b.name; } else { photo.hidden = true; }
+    $('name').textContent = b.name;
+    $('headline').textContent = tr(b.headline);
+
+    const items = [];
+    if (b.location) items.push(h('li', null, tr(b.location)));
+    if (b.email) {
+      const copyBtn = isPrint ? null : h('button', { type: 'button', class: 'copy' }, ui().copy);
+      if (copyBtn) {
+        copyBtn.addEventListener('click', () => {
+          const done = () => { copyBtn.textContent = ui().copied; setTimeout(() => { copyBtn.textContent = ui().copy; }, 1600); };
+          const fallback = () => {
+            const sel = window.getSelection();
+            const rng = document.createRange();
+            rng.selectNodeContents(copyBtn.previousSibling);
+            sel.removeAllRanges();
+            sel.addRange(rng);
+          };
+          try {
+            navigator.clipboard.writeText(b.email).then(done, fallback);
+          } catch (e) { fallback(); }
+        });
+      }
+      items.push(h('li', null, h('a', { href: `mailto:${b.email}` }, b.email), copyBtn));
+    }
+    if (build.phone) items.push(h('li', null, h('span', { class: 'k' }, ui().phone), build.phone));
+    const link = (url, label) => {
+      const shown = String(url).replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '');
+      return h('li', null, h('span', { class: 'k' }, label), h('a', { href: url, target: '_blank', rel: 'noopener' }, shown));
+    };
+    if (b.linkedin) items.push(link(b.linkedin, 'LinkedIn'));
+    if (b.github) items.push(link(b.github, 'GitHub'));
+    $('contact').replaceChildren(...items);
+
+    const pdf = build.pdf && build.pdf[lang];
+    const pdfLink = $('pdf-link');
+    pdfLink.hidden = !pdf || isPrint;
+    if (pdf) pdfLink.href = pdf;
+    $('pdf-label').textContent = ui().download;
+  }
+
+  function renderIntro() {
+    $('summary').textContent = tr(cv.basics.summary);
+    $('summary').parentElement.hidden = !tr(cv.basics.summary);
+    $('figs').replaceChildren(...(cv.highlights || []).map((f) =>
+      h('div', { class: 'fig' }, h('div', { class: 'fig-val' }, f.value), h('div', { class: 'fig-lbl' }, tr(f.label)))
+    ));
+  }
+
+  function renderTimeline() {
+    const plot = $('timeline');
+    const all = cv.work.flatMap((w) => w.positions);
+    const firstYear = Math.min(...all.map((p) => Math.floor(monthIdx(p.start) / 12)));
+    const lastYear = NOW.getFullYear() + 1;
+    const min = firstYear * 12;
+    const max = lastYear * 12;
+    const pct = (v) => `${(((v - min) / (max - min)) * 100).toFixed(3)}%`;
+    const nowPos = NOW_IDX + (NOW.getDate() - 1) / 31;
+
+    const kids = [];
+    cv.work.forEach((w, wi) => {
+      kids.push(h('div', { class: 'tl-group' }, w.company));
+      w.positions.forEach((p) => {
+        const current = isPresent(p);
+        const start = monthIdx(p.start);
+        const end = current ? nowPos : monthIdx(p.end) + 1;
+        kids.push(h('a', { class: 'lane', href: `#exp-${wi}` },
+          h('span', { class: 'lane-label' },
+            h('span', { class: 'lane-title' }, tr(p.title)),
+            h('span', { class: 'lane-dates' }, `${range(p)} · ${fmtDuration(durationMonths(p))}`)
+          ),
+          h('span', { class: 'track', 'aria-hidden': 'true' },
+            h('span', { class: current ? 'bar current' : 'bar', style: `left:${pct(start)};width:${pct(min + (end - start))}` })
+          )
+        ));
+      });
+    });
+
+    const axis = h('div', { class: 'axis', 'aria-hidden': 'true' });
+    for (let y = firstYear; y <= lastYear; y++) {
+      axis.append(h('span', { class: (y - firstYear) % 2 ? 'tick minor' : 'tick', style: `left:${pct(y * 12)}` }, y));
+    }
+    const now = h('div', { class: 'now', style: `left:${pct(nowPos)}`, 'aria-hidden': 'true' }, h('span', null, ui().today));
+    plot.replaceChildren(...kids, now, axis);
+  }
+
+  function bullets(o) {
+    const out = [];
+    if (o.responsibilities && o.responsibilities.length) {
+      out.push(h('h5', null, ui().responsibilities), h('ul', { class: 'bul' }, o.responsibilities.map((r) => h('li', null, tr(r)))));
+    }
+    if (o.achievements && o.achievements.length) {
+      out.push(h('h5', null, ui().achievements), h('ul', { class: 'bul ach' }, o.achievements.map((r) => h('li', null, tr(r)))));
+    }
+    return out.length ? h('div', { class: 'pos' }, out) : null;
+  }
+
+  function renderExperience() {
+    $('experience').replaceChildren(...cv.work.map((w, wi) => {
+      const hasPositionBullets = w.positions.some((p) => (p.responsibilities || []).length || (p.achievements || []).length);
+      const positions = h('div', { class: hasPositionBullets ? 'positions' : 'positions compact' },
+        w.positions.map((p) => h('div', { class: 'pos' },
+          h('div', { class: 'pos-head' },
+            h('h4', { class: isPresent(p) ? 'current' : null }, tr(p.title)),
+            h('span', { class: 'dates' }, `${range(p)} · ${fmtDuration(durationMonths(p))}`)
+          ),
+          bullets(p)
+        ))
+      );
+      return h('article', { class: 'job', id: `exp-${wi}` },
+        h('header', null, h('h3', null, w.company), w.team ? h('p', { class: 'team' }, tr(w.team)) : null),
+        positions,
+        bullets(w)
+      );
+    }));
+  }
+
+  function renderSide() {
+    $('skills').replaceChildren(...(cv.skills || []).map((g) =>
+      h('div', { class: 'skill-group' },
+        h('h3', null, tr(g.category)),
+        h('ul', { class: 'skill-list' }, g.items.map((it) => {
+          const lvl = LEVELS.indexOf(it.level) + 1;
+          return h('li', null,
+            h('span', { class: 'sk-name' }, it.name),
+            h('span', { class: 'meter', 'aria-hidden': 'true' }, [1, 2, 3, 4].map((i) => h('i', { class: i <= lvl ? 'on' : null }))),
+            h('span', { class: 'sk-lvl' }, it.level)
+          );
+        }))
+      )
+    ));
+
+    $('languages').replaceChildren(...(cv.languages || []).map((l) =>
+      h('li', { class: 'inline-kv' }, h('span', { class: 't' }, tr(l.name)), h('span', { class: 'm' }, tr(l.level)))
+    ));
+
+    $('education').replaceChildren(...(cv.education || []).map((e) => {
+      const years = e.start ? `${e.start}–${e.end}` : `${e.end}`;
+      return h('li', null,
+        h('span', { class: 't' }, tr(e.area)),
+        h('span', null, [tr(e.degree), tr(e.institution)].filter(Boolean).join(', ')),
+        ' ', h('span', { class: 'm' }, `· ${years}`)
+      );
+    }));
+
+    $('courses').replaceChildren(...(cv.courses || []).map((c) =>
+      h('li', null, h('span', { class: 't' }, c.name), h('span', null, c.provider || tr(c.description)))
+    ));
+
+    const interests = cv.interests ? (cv.interests[lang] || cv.interests.en || []) : [];
+    $('interests').textContent = interests.join(' · ');
+  }
+
+  function renderFooter() {
+    const parts = [h('span', null, `${ui().updated}: ${fmtGenerated(build.generated)}`)];
+    if (build.repo) parts.push(h('a', { href: build.repo, target: '_blank', rel: 'noopener' }, ui().source));
+    $('foot').replaceChildren(...parts);
+
+    const gdpr = $('gdpr');
+    gdpr.hidden = !build.gdpr;
+    if (build.gdpr) gdpr.textContent = tr(cv.gdpr_clause);
+  }
+
+  function render() {
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-i18n]').forEach((el) => { el.textContent = ui()[el.dataset.i18n] || ''; });
+    $('lang-group').setAttribute('aria-label', ui().langGroup);
+    ['en', 'pl'].forEach((l) => $(`lang-${l}`).setAttribute('aria-pressed', String(l === lang)));
+    renderHeader();
+    renderIntro();
+    renderTimeline();
+    renderExperience();
+    renderSide();
+    renderFooter();
+  }
+
+  document.querySelectorAll('.lang button').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      if (btn.dataset.lang === lang) return;
+      lang = btn.dataset.lang;
+      storage.set('cv-lang', lang);
+      render();
+    });
+  });
+
+  render();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,259 @@
+# =====================================================================
+#  CV – JEDYNE ŹRÓDŁO TREŚCI
+#  Z tego pliku generują się: strona WWW (przełącznik EN/PL) i PDF-y.
+#  Po każdej zmianie uruchom:  .venv\Scripts\python build.py
+#
+#  Zasady:
+#   - Tekst, który różni się między językami, ma dwie wersje: en / pl.
+#     Tekst identyczny w obu językach (np. "Qlik Sense") to zwykły napis.
+#   - Daty: RRRR-MM, a "present" = obecnie.
+#   - Telefonu tu NIE MA (repozytorium będzie publiczne) – jest w private.yaml.
+# =====================================================================
+
+# Ustawienia strony WWW
+site:
+  noindex: true    # true = strona nie pojawi się w Google (dostęp tylko z linku). Zmień na false, gdy szukasz otwarcie.
+
+basics:
+  name: Michał Tworowski
+  headline: Qlik Sense Developer · Junior Data Engineer
+  email: michal.tworowski@op.pl
+  location:
+    en: Bielsko-Biała, Poland
+    pl: Bielsko-Biała
+  linkedin:        # opcjonalnie: pełny link do profilu
+  github:          # uzupełnimy po założeniu konta
+  photo: assets/photo.jpg
+  # PROPOZYCJA – do akceptacji / poprawy
+  summary:
+    en: >-
+      BI developer with nearly five years of Qlik Sense experience at Grupa Maspex,
+      since April 2026 also working as a Junior Data Engineer on Databricks and Azure DevOps.
+      Before moving into data, I spent over six years in production planning and logistics
+      at Grupa Kęty, so I build reports and data flows with the business user in mind.
+      I focus on reliable data processes, performance and data quality.
+    pl: >-
+      Developer BI z blisko pięcioletnim doświadczeniem w Qlik Sense w Grupie Maspex,
+      od kwietnia 2026 także Junior Data Engineer (Databricks, Azure DevOps).
+      Wcześniej ponad sześć lat w planowaniu produkcji i logistyce w Grupie Kęty –
+      dzięki temu projektuję raporty i przepływy danych z perspektywy ich odbiorców.
+      Skupiam się na niezawodności procesów danych, wydajności i jakości danych.
+
+# Liczby do kafelków na stronie (z osiągnięć poniżej)
+highlights:
+  - value: "50+"
+    label:
+      en: reports delivered and maintained
+      pl: wdrożonych i utrzymywanych raportów
+  - value: "400M+"
+    label:
+      en: records in a key report's ETL
+      pl: rekordów w ETL kluczowego raportu
+  - value: "150+"
+    label:
+      en: daily users of that report
+      pl: użytkowników tego raportu dziennie
+  - value: ">10 GB"
+    label:
+      en: of data, ready before 9:00 AM every day
+      pl: danych, gotowych codziennie przed 9:00
+
+work:
+  - company: Grupa Maspex sp. z o.o.
+    positions:
+      - title: Junior Data Engineer
+        start: 2026-04
+        end: present
+        responsibilities:
+          - en: Building data pipelines on the Databricks platform
+            pl: Tworzenie przepływów danych na platformie Databricks
+          - en: Creating and automating processes, e.g. copying data between the PRD and TST landing zones
+            pl: Tworzenie i automatyzacja procesów, m.in. kopiowanie danych pomiędzy landing zone środowisk PRD i TST
+          - en: Working in the Azure DevOps environment
+            pl: Praca w środowisku Azure DevOps
+          - en: Creating technical documentation and standard operating procedures (SOPs)
+            pl: Tworzenie dokumentacji technicznej oraz procedur SOP
+        achievements: []       # opcjonalnie: 1–3 konkretne efekty, najlepiej z liczbami
+
+      - title: Qlik Sense Developer
+        start: 2021-12
+        end: present
+        responsibilities:
+          - en: Creating reports and data visualizations for internal clients
+            pl: Tworzenie raportów i wizualizacji dla klientów wewnętrznych
+          - en: Developing tools to improve Data Quality teams' efficiency (e.g. day-to-day data comparators, monitoring data volume changes)
+            pl: Opracowywanie narzędzi usprawniających pracę zespołów Data Quality (np. porównywarki danych dzień do dnia, monitorowanie zmian wolumenów)
+          - en: Building administrative tools (scheduler load overview, disk space monitoring, estimation of reload times for end-user applications)
+            pl: Tworzenie narzędzi administracyjnych (podgląd obciążenia schedulerów, monitorowanie przestrzeni dyskowej, szacowanie czasu przeładowań aplikacji końcowych)
+          - en: Diagnosing and fixing issues (including bugs after code changes, performance bottlenecks, RAM problems)
+            pl: Diagnozowanie i usuwanie błędów (m.in. błędy wynikające ze zmian w kodzie, wąskie gardła, problemy z pamięcią RAM)
+          - en: Designing and developing data models
+            pl: Budowa i rozwój modeli danych
+          - en: Optimizing report code to improve performance and reduce loading time
+            pl: Optymalizacja kodu w raportach w celu poprawy wydajności i skrócenia czasu ładowania
+          - en: Configuring alerts using the Alerting and NPrinting modules
+            pl: Konfiguracja alertów z wykorzystaniem modułów Alerting i NPrinting
+          - en: Preparing business analyses
+            pl: Przygotowywanie analiz biznesowych
+          - en: Maintaining and administering reporting applications
+            pl: Utrzymanie i administracja istniejących aplikacji raportowych
+          - en: End-user support (helpdesk) and communication with report users
+            pl: Wsparcie użytkowników końcowych (helpdesk) i kontakt z odbiorcami raportów
+          - en: Creating project documentation and user manuals
+            pl: Tworzenie dokumentacji projektowej i instrukcji użytkownika
+        achievements:
+          - en: Implemented and maintained over 50 reports in SCM, Procurement, Commercial and Data Analysis areas
+            pl: Wdrożenie i utrzymanie ponad 50 raportów w obszarach SCM, Zakupy, Commercial, Analiza Danych
+          - en: Stabilized the ETL process for a key report (over 400M records, 150+ daily users, >10 GB of data); the report is ready before 9:00 AM every day
+            pl: Ustabilizowanie procesu ETL dla kluczowego raportu (ponad 400 mln rekordów, >150 użytkowników dziennie, >10 GB danych); raport gotowy codziennie do godziny 9:00
+          - en: Recommended migrating from the Alerting module to an NPrinting-based alerting solution, resulting in cost savings
+            pl: Rekomendacja migracji z modułu Alerting na rozwiązanie alertowania oparte o NPrinting, co przyniosło oszczędności
+
+  - company: Grupa Kęty S.A.
+    team:
+      en: Production Planning Department, Advanced Aluminum Products Plant
+      pl: Dział Planowania Produkcji, Zakład Zaawansowanych Produktów Aluminiowych
+    positions:
+      - title:
+          en: Production Accounting Specialist
+          pl: Specjalista ds. rozliczania produkcji
+        start: 2021-01
+        end: 2021-12
+      - title:
+          en: Logistics and Production Planning Coordinator
+          pl: Koordynator ds. logistyki i planowania produkcji
+        start: 2015-09
+        end: 2021-01
+      - title:
+          en: Intern – Assistant Manager, Logistics and Planning Department
+          pl: Staż – Asystent kierownika w dziale logistyki i planowania
+        start: 2015-04
+        end: 2015-09
+    # Obowiązki i osiągnięcia wspólne dla wszystkich stanowisk w Grupie Kęty
+    responsibilities:
+      - en: Creating reports and SQL scripts
+        pl: Tworzenie raportów oraz skryptów w języku SQL
+      - en: Developing tools to support production supervision (VBA, PL/SQL)
+        pl: Tworzenie narzędzi usprawniających nadzór nad produkcją (VBA oraz PL/SQL)
+      - en: Long-term planning – analyzing customer plans against production capacity
+        pl: Planowanie długoterminowe – analiza planów klienta w oparciu o możliwości produkcyjne
+      - en: Preparing daily production schedules
+        pl: Tworzenie dobowych planów produkcji
+      - en: Supervising order execution for individual customers
+        pl: Nadzorowanie realizacji zamówień dla poszczególnych klientów
+      - en: Coordinating the internal logistics team and supervising inventory teams
+        pl: Koordynowanie zespołu logistyki wewnątrzzakładowej i nadzorowanie zespołów inwentaryzacyjnych
+      - en: Preparing production documentation
+        pl: Tworzenie dokumentacji produkcyjnej
+      - en: Production accounting – efficiency analysis
+        pl: Rozliczanie produkcji – analiza wydajności
+      - en: Managing warehouse stock levels
+        pl: Opieka nad stanami magazynowymi
+    achievements:
+      - en: Implemented an application for monitoring production KPIs using SQL and MES software
+        pl: Wdrożenie aplikacji monitorującej wskaźniki produkcyjne przy wykorzystaniu języka SQL oraz oprogramowania klasy MES
+      - en: Implemented a tool for monitoring packaging stock levels
+        pl: Wdrożenie narzędzia pozwalającego nadzorować stan magazynowy opakowań
+      - en: Implemented a tool generating material orders based on the current production plan
+        pl: Wdrożenie narzędzia generującego zamówienia materiałowe według potrzeb bieżącego planu produkcyjnego
+
+# Poziomy: junior | mid | mid/senior | senior
+skills:
+  - category:
+      en: Data Engineering
+      pl: Data Engineering
+    items:
+      - { name: Databricks, level: junior }
+      - { name: Azure DevOps, level: junior }
+  - category:
+      en: BI & Reporting
+      pl: BI i raportowanie
+    items:
+      - { name: Qlik Sense, level: mid/senior }
+      - { name: QMC (Qlik Management Console), level: mid/senior }
+      - { name: NPrinting, level: mid }
+      - { name: Qlik Alerting, level: mid }
+      - { name: Power BI, level: junior }
+  - category:
+      en: Languages & Code
+      pl: Języki i kod
+    items:
+      - { name: SQL, level: mid }
+      - { name: PL/SQL, level: mid }
+      - { name: Python, level: junior }
+      - { name: VBA, level: junior }
+  - category:
+      en: Tools
+      pl: Narzędzia
+    items:
+      - { name: Git, level: mid }
+      - { name: CSS, level: junior }
+
+languages:
+  - name: { en: Polish, pl: polski }
+    level: { en: native, pl: ojczysty }
+  - name: { en: English, pl: angielski }
+    level: B2
+
+education:
+  - institution:
+      en: University of Economics in Katowice
+      pl: Uniwersytet Ekonomiczny w Katowicach
+    area:
+      en: Machine Learning and Data Science
+      pl: Uczenie maszynowe i Data Science
+    degree:
+      en: Postgraduate studies
+      pl: Studia podyplomowe
+    end: 2024
+  - institution:
+      en: University of Bielsko-Biała
+      pl: Uniwersytet Bielsko-Bialski
+    area:
+      en: Management and Production Engineering
+      pl: Zarządzanie i inżynieria produkcji
+    degree:
+      en: Master's degree
+      pl: Studia II stopnia
+    start: 2017
+    end: 2019
+  - institution:
+      en: University of Bielsko-Biała
+      pl: Uniwersytet Bielsko-Bialski
+    area:
+      en: Management and Production Engineering
+      pl: Zarządzanie i inżynieria produkcji
+    degree:
+      en: Bachelor's degree
+      pl: Studia I stopnia
+    start: 2010
+    end: 2014
+
+courses:
+  - name: SQL Fundamentals
+    provider: Dataquest
+  - name: "Python: Basics for Data Analysis"
+    provider: Dataquest
+  - name: Poznaj świat baz danych
+    description:
+      en: SQL databases from scratch
+      pl: kurs baz danych SQL od podstaw
+
+interests:
+  en: [Sports, Programming, Music, Travelling]
+  pl: [Sport, Programowanie, Muzyka, Podróże]
+
+# Tylko w PDF-ach wysyłanych do rekruterów (out/), nie na stronie
+gdpr_clause:
+  pl: >-
+    Wyrażam zgodę na przetwarzanie moich danych osobowych dla potrzeb niezbędnych
+    do realizacji procesu rekrutacji (zgodnie z ustawą z dnia 10 maja 2018 roku
+    o ochronie danych osobowych (Dz. Ustaw z 2018, poz. 1000) oraz zgodnie
+    z Rozporządzeniem Parlamentu Europejskiego i Rady (UE) 2016/679 z dnia
+    27 kwietnia 2016 r. w sprawie ochrony osób fizycznych w związku z przetwarzaniem
+    danych osobowych i w sprawie swobodnego przepływu takich danych oraz uchylenia
+    dyrektywy 95/46/WE (RODO)).
+  en: >-
+    I hereby consent to the processing of my personal data for the purposes
+    necessary for the recruitment process, in accordance with Regulation (EU)
+    2016/679 of the European Parliament and of the Council of 27 April 2016 (GDPR).

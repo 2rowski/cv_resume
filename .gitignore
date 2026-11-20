@@ -1,0 +1,13 @@
+# Dane prywatne – nie publikujemy (telefon)
+private.yaml
+
+# Oryginalne pliki Word zawierają telefon
+*.docx
+
+# PDF-y z telefonem (do wysyłki), generowane lokalnie
+out/
+
+# Pliki pośrednie budowania i środowisko Pythona
+build/
+.venv/
+__pycache__/
