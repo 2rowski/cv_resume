@@ -21,19 +21,21 @@ basics:
   headline: Qlik Sense Developer · Junior Data Engineer
   # e-mail jest w private.yaml – na stronie trafia zakodowany, żeby nie zbierały go boty
   location:
-    en: Bielsko-Biała, Poland
-    pl: Bielsko-Biała
+    en: Kęty, Poland
+    pl: Kęty
   linkedin:        # opcjonalnie: pełny link do profilu
   github: https://github.com/2rowski
   photo: assets/photo-studio.jpg   # oryginał: assets/photo.jpg
+  # "|-" zachowuje podział linii: każda linia to osobny wiersz na stronie i w PDF.
+  # (">-" skleja linie w jeden akapit, który zawija się wg szerokości kolumny)
   summary:
-    en: >-
+    en: |-
       I am a BI Developer with nearly five years of experience working with Qlik Sense at Grupa Maspex.
       Since April 2026, I have also been growing into data engineering, working with Databricks and Azure DevOps.
       Before that, I spent over six years in production planning and logistics at Grupa Kęty.
       That experience helps me understand business needs and turn them into practical analytics solutions.
       In my work, I focus on data quality and reliability, performance, and process stability.
-    pl: >-
+    pl: |-
       Jestem Developerem BI z blisko pięcioletnim doświadczeniem w pracy z Qlik Sense w Grupie Maspex. 
       Od kwietnia 2026 rozwijam się również w kierunku Data Engineeringu, pracując z Databricks i Azure DevOps. 
       Wcześniej przez ponad sześć lat zajmowałem się planowaniem produkcji i logistyką w Grupie Kęty. 

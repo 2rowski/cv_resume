@@ -189,7 +189,8 @@ h2 {
   color: var(--muted);
 }
 
-.summary-sec p { margin: 0; max-width: 72ch; font-size: var(--step-1); line-height: 1.65; color: var(--ink-2); }
+.summary-sec p { margin: 0; font-size: var(--step-1); line-height: 1.65; color: var(--ink-2); }
+.sum-line { display: block; text-wrap: pretty; }
 
 /* ---------- Selected results ---------- */
 .kpis { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) minmax(0, 1fr); gap: 14px; }
@@ -684,9 +685,11 @@ h5 {
   }
 
   function renderIntro() {
+    // Each line written in cv.yaml becomes its own line on the page (long ones still wrap on narrow screens).
     const summary = tr(cv.basics.summary);
-    $('summary').textContent = summary;
-    $('summary-sec').hidden = !summary;
+    const lines = summary.split('\n').map((l) => l.trim()).filter(Boolean);
+    $('summary').replaceChildren(...lines.map((l) => h('span', { class: 'sum-line' }, l)));
+    $('summary-sec').hidden = !lines.length;
 
     const hl = cv.highlights || {};
     const cards = [];
