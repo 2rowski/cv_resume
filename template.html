@@ -120,7 +120,7 @@ h1 {
   color: var(--ink-2);
 }
 .contact li { display: inline-flex; align-items: center; gap: 8px; min-width: 0; overflow-wrap: anywhere; }
-.contact .k { font-family: var(--font-mono); font-size: var(--step--2); letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.contact .k { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
 
 .controls { display: flex; flex-direction: column; align-items: flex-end; gap: 10px; align-self: start; }
 .ctl-row { display: flex; align-items: center; gap: 8px; }
@@ -304,9 +304,11 @@ h5 {
 /* Markers are grid items, not positioned boxes: positioned list items would be painted
    after the rest of the page and scramble the PDF's text order for ATS parsers. */
 .bul li { display: grid; grid-template-columns: 20px minmax(0, 1fr); color: var(--ink-2); }
-.bul li::before { content: ""; justify-self: start; margin: 0.72em 0 0 3px; width: 7px; height: 1.5px; background: var(--muted); }
+/* The dash is a text glyph, not a thin box: a 1.5px box lands on fractional pixels and looks
+   thicker or thinner from line to line, especially in the PDF. */
+.bul li::before { content: "–"; color: var(--muted); }
 .bul.ach li { color: var(--ink); }
-.bul.ach li::before { margin-top: 0.5em; width: 8px; height: 8px; border-radius: 2px; background: var(--accent); }
+.bul.ach li::before { content: ""; justify-self: start; margin-top: 0.5em; width: 8px; height: 8px; border-radius: 2px; background: var(--accent); }
 
 .skill-group + .skill-group { margin-top: 18px; }
 .skill-group h3 { margin: 0 0 8px; font-size: var(--step-0); font-weight: 600; }
@@ -367,6 +369,9 @@ h5 {
     color-scheme: light;
   }
   * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  /* Paper scale: every rem-based size shrinks together (body text lands at 9.3pt), so no
+     label keeps its screen size and looks oversized next to the text around it. */
+  html { font-size: 8.75pt; }
   body { font-size: 9.3pt; line-height: 1.38; background: #FFFFFF; }
   a { color: inherit; text-decoration: none; }
   .wrap { max-width: none; padding: 0; }
@@ -378,6 +383,7 @@ h5 {
   h1 { font-size: 20pt; }
   .headline { font-size: 10.5pt; margin-top: 2pt; }
   .contact { margin-top: 6pt; gap: 2pt 14pt; font-size: 8.6pt; }
+  .contact .k { font-size: 6.6pt; letter-spacing: 0.08em; }
 
   main.wrap { display: block; padding: 0; }
   main.wrap > * + * { margin-top: 11pt; }
@@ -403,10 +409,12 @@ h5 {
   .bul li::before { margin-left: 1pt; }
   .inline-kv { display: block; }
 
-  .skill-group + .skill-group { margin-top: 2pt; }
-  .skill-group h3 { display: inline; font-size: 9.3pt; }
-  .skill-group h3::after { content: ": "; }
-  .skill-list, .skill-list li { display: inline; }
+  /* Skills: category in a fixed left column, its items flowing as one line of text on the right */
+  .skill-group { display: grid; grid-template-columns: 36mm minmax(0, 1fr); gap: 0 8pt; align-items: baseline; }
+  .skill-group + .skill-group { margin-top: 3pt; }
+  .skill-group h3 { margin: 0; font-size: 8.8pt; font-weight: 600; }
+  .skill-list { display: block; font-size: 9.3pt; }
+  .skill-list li { display: inline; font-size: inherit; }
   .skill-list li:not(:last-child)::after { content: ", "; }
   .sk-lvl { font: inherit; color: var(--muted); }
   .sk-lvl::before { content: " ("; }
@@ -415,6 +423,8 @@ h5 {
   .plain { gap: 4pt; font-size: 9pt; }
   .plain .t { display: inline; font-size: 9.3pt; }
   .plain .t::after { content: " · "; font-weight: 400; color: var(--muted); }
+  .plain .m { font: inherit; color: var(--muted); }
+  .interests { font-size: 9.3pt; }
   .gdpr { margin-top: 14pt; font-size: 7pt; }
 
   .pos-head, h2, h3, h4, h5 { break-after: avoid; }

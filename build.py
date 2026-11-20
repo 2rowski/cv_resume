@@ -19,6 +19,7 @@ import datetime as dt
 import html
 import json
 import mimetypes
+import os
 import shutil
 import subprocess
 import sys
@@ -120,7 +121,14 @@ def find_browser() -> str | None:
 
 
 def print_pdf(browser: str, html_path: Path, pdf_path: Path) -> None:
+    """Drukuje do pliku tymczasowego i dopiero potem podmienia docelowy PDF.
+
+    Gdy PDF jest otwarty w przeglądarce PDF, Windows blokuje jego nadpisanie – wtedy
+    zgłaszamy błąd zamiast po cichu zostawiać starą wersję.
+    """
     pdf_path.parent.mkdir(parents=True, exist_ok=True)
+    final_path, pdf_path = pdf_path, pdf_path.with_name(pdf_path.stem + ".tmp.pdf")
+    pdf_path.unlink(missing_ok=True)
     with tempfile.TemporaryDirectory(ignore_cleanup_errors=True) as profile:
         cmd = [
             browser,
@@ -140,6 +148,14 @@ def print_pdf(browser: str, html_path: Path, pdf_path: Path) -> None:
         subprocess.run(cmd, check=True, timeout=180, capture_output=True)
     if not pdf_path.exists() or pdf_path.stat().st_size == 0:
         raise RuntimeError(f"Przeglądarka nie utworzyła pliku {pdf_path}")
+    try:
+        os.replace(pdf_path, final_path)
+    except PermissionError:
+        pdf_path.unlink(missing_ok=True)
+        raise PermissionError(
+            f"Nie mogę nadpisać {final_path.name} – plik jest otwarty w innym programie. "
+            "Zamknij go i uruchom build.py ponownie."
+        ) from None
 
 
 def main() -> int:
@@ -192,15 +208,20 @@ def main() -> int:
         (DOCS, None),                   # publiczne – do pobrania ze strony
         (OUT, private.get("phone")),    # prywatne – do wysyłki
     ]
+    failed = 0
     for target, phone in variants:
         for lang in LANGS:
             build = {"mode": "print", "lang": lang, "generated": today, "phone": phone, "gdpr": True, "email": email_enc}
             html_path = BUILD / f"print-{target.name}-{lang}.html"
             html_path.write_text(render(cv, build, full_document=True), encoding="utf-8")
             pdf_path = target / pdf_names[lang]
-            print_pdf(browser, html_path, pdf_path)
-            print(f"OK  {pdf_path.relative_to(ROOT).as_posix()}")
-    return 0
+            try:
+                print_pdf(browser, html_path, pdf_path)
+                print(f"OK  {pdf_path.relative_to(ROOT).as_posix()}")
+            except PermissionError as err:
+                failed += 1
+                print(f"BŁĄD  {err}", file=sys.stderr)
+    return 1 if failed else 0
 
 
 if __name__ == "__main__":
