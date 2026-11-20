@@ -1,12 +1,12 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="BI developer with nearly five years of Qlik Sense experience at Grupa Maspex, since April 2026 also working as a Junior Data Engineer on Databricks and Azure DevOps. Before moving into data, I spent over six years in production planning and logistics at Grupa Kęty, so I build reports and data flows with the business user in mind. I focus on reliable data processes, performance and data quality.">
+<meta name="description" content="I am a BI Developer with nearly five years of experience working with Qlik Sense at Grupa Maspex. Since April 2026, I have also been growing into data engineering, working with Databricks and Azure DevOps. Before that, I spent over six years in production planning and logistics at Grupa Kęty. That experience helps me understand business needs and turn them into practical analytics solutions. In my work, I focus on data quality and reliability, performance, and process stability.">
 <meta property="og:type" content="profile">
 <meta property="og:title" content="Michał Tworowski – CV">
-<meta property="og:description" content="BI developer with nearly five years of Qlik Sense experience at Grupa Maspex, since April 2026 also working as a Junior Data Engineer on Databricks and Azure DevOps. Before moving into data, I spent over six years in production planning and logistics at Grupa Kęty, so I build reports and data flows with the business user in mind. I focus on reliable data processes, performance and data quality.">
+<meta property="og:description" content="I am a BI Developer with nearly five years of experience working with Qlik Sense at Grupa Maspex. Since April 2026, I have also been growing into data engineering, working with Databricks and Azure DevOps. Before that, I spent over six years in production planning and logistics at Grupa Kęty. That experience helps me understand business needs and turn them into practical analytics solutions. In my work, I focus on data quality and reliability, performance, and process stability.">
 <meta property="og:url" content="https://2rowski.github.io/cv_resume/">
 <link rel="canonical" href="https://2rowski.github.io/cv_resume/">
 <meta name="robots" content="noindex, nofollow">
@@ -34,11 +34,12 @@
   --font-sans: "IBM Plex Sans", "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
 
-  --step--2: 0.6875rem;
-  --step--1: 0.8125rem;
-  --step-0: 0.9375rem;
-  --step-1: 1.0625rem;
-  --step-2: 1.3125rem;
+  --step--2: 0.8125rem;
+  --step--1: 0.9375rem;
+  --step-0: 1.0625rem;
+  --step-1: 1.1875rem;
+  --step-2: 1.4375rem;
+  --step-mono: 0.875rem;
   --radius: 10px;
 }
 @media (prefers-color-scheme: dark) {
@@ -134,9 +135,26 @@ h1 {
 .contact .k { font-family: var(--font-mono); font-size: var(--step--2); letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
 
 .controls { display: flex; flex-direction: column; align-items: flex-end; gap: 10px; align-self: start; }
+.ctl-row { display: flex; align-items: center; gap: 8px; }
+.icon-btn {
+  display: inline-grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--bg);
+  color: var(--ink-2);
+  cursor: pointer;
+}
+.icon-btn:hover { color: var(--ink); border-color: var(--muted); }
+.icon-btn svg { width: 18px; height: 18px; }
+.ic-sun { display: none; }
+:root[data-theme="dark"] .ic-sun { display: block; }
+:root[data-theme="dark"] .ic-moon { display: none; }
 .lang { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; padding: 3px; background: var(--bg); }
 .lang button {
-  font: 500 0.8125rem/1 var(--font-mono);
+  font: 500 var(--step-mono)/1 var(--font-mono);
   border: 0;
   background: transparent;
   color: var(--muted);
@@ -177,18 +195,42 @@ h2 {
   margin: 0 0 16px;
   padding-bottom: 8px;
   border-bottom: 1px solid var(--line);
-  font: 500 0.75rem/1.2 var(--font-mono);
+  font: 500 var(--step-mono)/1.2 var(--font-mono);
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--muted);
 }
 
-.intro { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 32px 44px; align-items: start; }
-.summary p { margin: 0; max-width: 62ch; font-size: var(--step-1); line-height: 1.65; color: var(--ink-2); }
-.figs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
-.fig { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 14px 16px 15px; }
-.fig-val { font-size: 1.75rem; line-height: 1.1; font-weight: 600; letter-spacing: -0.01em; color: var(--ink); }
-.fig-lbl { margin-top: 6px; font-size: var(--step--1); line-height: 1.4; color: var(--muted); }
+.summary-sec p { margin: 0; max-width: 72ch; font-size: var(--step-1); line-height: 1.65; color: var(--ink-2); }
+
+/* ---------- Selected results ---------- */
+.kpis { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) minmax(0, 1fr); gap: 14px; }
+.kpi {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+  padding: 20px 22px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+.kpi-feature { gap: 20px; background: var(--accent-tint); border-color: transparent; }
+.kpi-eyebrow { font: 500 var(--step--2)/1.3 var(--font-mono); letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); }
+.kpi-val { font-size: 2.5rem; line-height: 1; font-weight: 600; letter-spacing: -0.02em; color: var(--ink); }
+.kpi-lbl { margin-top: 6px; font-size: var(--step--1); line-height: 1.35; color: var(--ink-2); }
+/* Key report as a data flow: stage → stage → stage */
+.flow { flex: 1; display: grid; grid-template-columns: minmax(0, 1fr) 28px minmax(0, 1fr) 28px minmax(0, 1fr); align-items: stretch; }
+.node { display: grid; align-content: start; gap: 4px; min-width: 0; padding: 14px 14px 15px; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; }
+.node.hl { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
+.node-k { font: 500 var(--step--2)/1.3 var(--font-mono); letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.node .kpi-val { margin-top: 4px; font-size: 2rem; }
+.node.hl .kpi-val { color: var(--accent); }
+.node .kpi-lbl { margin-top: 2px; }
+.arr { display: grid; place-items: center; color: var(--accent); }
+.arr svg { width: 18px; height: 18px; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; padding-top: 6px; }
+.chip { padding: 4px 9px; border: 1px solid var(--line); border-radius: 12px; font: 500 var(--step--2)/1.3 var(--font-mono); color: var(--ink-2); }
 
 /* ---------- Career timeline ---------- */
 .tl-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px 24px 14px; }
@@ -212,7 +254,7 @@ h2 {
 .lane:hover { background: var(--accent-tint); }
 .lane-label { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 12px; font-size: var(--step--1); }
 .lane-title { font-weight: 500; color: var(--ink); }
-.lane-dates { font: 400 0.75rem var(--font-mono); color: var(--muted); font-variant-numeric: tabular-nums; }
+.lane-dates { font: 400 var(--step-mono) var(--font-mono); color: var(--muted); font-variant-numeric: tabular-nums; }
 .track { position: relative; display: block; height: 10px; margin-top: 6px; }
 .track::before { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 1px; background: var(--line); }
 .bar { position: absolute; top: 0; bottom: 0; min-width: 6px; border-radius: 3px; background: var(--past); }
@@ -223,7 +265,7 @@ h2 {
   top: 0;
   transform: translateX(-50%);
   padding-top: 7px;
-  font: 400 0.6875rem/1 var(--font-mono);
+  font: 400 var(--step--2)/1 var(--font-mono);
   color: var(--muted);
   font-variant-numeric: tabular-nums;
 }
@@ -233,7 +275,7 @@ h2 {
   position: absolute;
   top: -18px;
   right: 5px;
-  font: 500 0.6875rem/1 var(--font-mono);
+  font: 500 var(--step--2)/1 var(--font-mono);
   color: var(--accent);
   white-space: nowrap;
 }
@@ -261,7 +303,7 @@ h2 {
   background: var(--accent);
   vertical-align: 2px;
 }
-.dates { font: 400 0.8125rem var(--font-mono); color: var(--muted); font-variant-numeric: tabular-nums; }
+.dates { font: 400 var(--step-mono) var(--font-mono); color: var(--muted); font-variant-numeric: tabular-nums; }
 h5 {
   margin: 6px 0 2px;
   font: 500 var(--step--2)/1.3 var(--font-mono);
@@ -280,16 +322,16 @@ h5 {
 .skill-group + .skill-group { margin-top: 18px; }
 .skill-group h3 { margin: 0 0 8px; font-size: var(--step-0); font-weight: 600; }
 .skill-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
-.skill-list li { display: grid; grid-template-columns: minmax(0, 1fr) auto 5.75rem; align-items: center; gap: 12px; font-size: var(--step--1); }
+.skill-list li { display: grid; grid-template-columns: minmax(0, 1fr) auto 6.5rem; align-items: center; gap: 12px; font-size: var(--step--1); }
 .sk-name { min-width: 0; color: var(--ink); }
 .meter { display: inline-flex; gap: 2px; }
 .meter i { display: block; width: 16px; height: 6px; border-radius: 2px; background: var(--track); }
 .meter i.on { background: var(--accent); }
-.sk-lvl { font: 400 0.75rem var(--font-mono); color: var(--muted); }
+.sk-lvl { font: 400 var(--step-mono) var(--font-mono); color: var(--muted); }
 
 .plain { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; font-size: var(--step--1); color: var(--ink-2); }
 .plain .t { display: block; font-size: var(--step-0); font-weight: 600; color: var(--ink); }
-.plain .m { font: 400 0.75rem var(--font-mono); color: var(--muted); font-variant-numeric: tabular-nums; }
+.plain .m { font: 400 var(--step-mono) var(--font-mono); color: var(--muted); font-variant-numeric: tabular-nums; }
 .inline-kv { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
 .interests { margin: 0; font-size: var(--step--1); color: var(--ink-2); }
 
@@ -300,7 +342,8 @@ h5 {
 /* ---------- Responsive ---------- */
 @media (max-width: 900px) {
   .cols { grid-template-columns: minmax(0, 1fr); }
-  .intro { grid-template-columns: minmax(0, 1fr); }
+  .kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .kpi-feature { grid-column: 1 / -1; }
 }
 @media (max-width: 680px) {
   .hero-inner { grid-template-columns: auto minmax(0, 1fr); padding-block: 18px 22px; gap: 16px 18px; }
@@ -309,6 +352,11 @@ h5 {
   .tl-card { padding: 16px 18px 12px; }
   .tick.minor { display: none; }
   main.wrap { gap: 36px; padding-block: 28px 8px; }
+  .kpi { padding: 16px 16px; }
+  .kpi-val { font-size: 1.875rem; }
+  .flow { grid-template-columns: minmax(0, 1fr); }
+  .arr { height: 26px; }
+  .arr svg { transform: rotate(90deg); }
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -344,8 +392,8 @@ h5 {
 
   main.wrap { display: block; padding: 0; }
   main.wrap > * + * { margin-top: 11pt; }
-  .intro { display: block; margin-top: 10pt; }
-  .summary p { font-size: 9.3pt; line-height: 1.45; max-width: none; }
+  .summary-sec { margin-top: 10pt; }
+  .summary-sec p { font-size: 9.3pt; line-height: 1.45; max-width: none; }
   h2 { font-size: 7.6pt; margin: 0 0 6pt; padding-bottom: 3pt; }
 
   .cols { display: block; }
@@ -395,9 +443,15 @@ h5 {
       <ul class="contact" id="contact"></ul>
     </div>
     <div class="controls">
-      <div class="lang" role="group" id="lang-group">
-        <button type="button" id="lang-en" data-lang="en" aria-pressed="false">EN</button>
-        <button type="button" id="lang-pl" data-lang="pl" aria-pressed="false">PL</button>
+      <div class="ctl-row">
+        <div class="lang" role="group" id="lang-group">
+          <button type="button" id="lang-en" data-lang="en" aria-pressed="false">EN</button>
+          <button type="button" id="lang-pl" data-lang="pl" aria-pressed="false">PL</button>
+        </div>
+        <button type="button" class="icon-btn" id="theme-btn" aria-pressed="false">
+          <svg class="ic-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>
+          <svg class="ic-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M4.6 4.6l1.4 1.4M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4L6 18M18 6l1.4-1.4"/></svg>
+        </button>
       </div>
       <a class="btn" id="pdf-link" target="_blank" rel="noopener" hidden>
         <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v8m0 0L5 7m3 3l3-3M3 13h10"/></svg>
@@ -408,15 +462,14 @@ h5 {
 </header>
 
 <main class="wrap">
-  <section class="intro">
-    <div class="summary">
-      <h2 data-i18n="profile"></h2>
-      <p id="summary"></p>
-    </div>
-    <div class="figs-sec">
-      <h2 data-i18n="figures"></h2>
-      <div class="figs" id="figs"></div>
-    </div>
+  <section class="summary-sec" id="summary-sec">
+    <h2 data-i18n="profile"></h2>
+    <p id="summary"></p>
+  </section>
+
+  <section class="figs-sec">
+    <h2 data-i18n="figures"></h2>
+    <div class="kpis" id="figs"></div>
   </section>
 
   <section class="tl-sec" aria-labelledby="tl-h">
@@ -452,7 +505,7 @@ h5 {
 
 <footer class="wrap foot"><div class="foot-inner" id="foot"></div></footer>
 
-<script id="cv-data" type="application/json">{"cv": {"site": {"url": "https://2rowski.github.io/cv_resume/", "repo": "https://github.com/2rowski/cv_resume", "noindex": true}, "basics": {"name": "Michał Tworowski", "headline": "Qlik Sense Developer · Junior Data Engineer", "email": "michal.tworowski@op.pl", "location": {"en": "Bielsko-Biała, Poland", "pl": "Bielsko-Biała"}, "linkedin": null, "github": "https://github.com/2rowski", "photo": "data:image/jpeg;base64,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", "summary": {"en": "BI developer with nearly five years of Qlik Sense experience at Grupa Maspex, since April 2026 also working as a Junior Data Engineer on Databricks and Azure DevOps. Before moving into data, I spent over six years in production planning and logistics at Grupa Kęty, so I build reports and data flows with the business user in mind. I focus on reliable data processes, performance and data quality.", "pl": "Developer BI z blisko pięcioletnim doświadczeniem w Qlik Sense w Grupie Maspex, od kwietnia 2026 także Junior Data Engineer (Databricks, Azure DevOps). Wcześniej ponad sześć lat w planowaniu produkcji i logistyce w Grupie Kęty – dzięki temu projektuję raporty i przepływy danych z perspektywy ich odbiorców. Skupiam się na niezawodności procesów danych, wydajności i jakości danych."}}, "highlights": [{"value": "50+", "label": {"en": "reports delivered and maintained", "pl": "wdrożonych i utrzymywanych raportów"}}, {"value": "400M+", "label": {"en": "records in a key report's ETL", "pl": "rekordów w ETL kluczowego raportu"}}, {"value": "150+", "label": {"en": "daily users of that report", "pl": "użytkowników tego raportu dziennie"}}, {"value": ">10 GB", "label": {"en": "of data, ready before 9:00 AM every day", "pl": "danych, gotowych codziennie przed 9:00"}}], "work": [{"company": "Grupa Maspex sp. z o.o.", "positions": [{"title": "Junior Data Engineer", "start": "2026-04", "end": "present", "responsibilities": [{"en": "Building data pipelines on the Databricks platform", "pl": "Tworzenie przepływów danych na platformie Databricks"}, {"en": "Creating and automating processes, e.g. copying data between the PRD and TST landing zones", "pl": "Tworzenie i automatyzacja procesów, m.in. kopiowanie danych pomiędzy landing zone środowisk PRD i TST"}, {"en": "Working in the Azure DevOps environment", "pl": "Praca w środowisku Azure DevOps"}, {"en": "Creating technical documentation and standard operating procedures (SOPs)", "pl": "Tworzenie dokumentacji technicznej oraz procedur SOP"}], "achievements": []}, {"title": "Qlik Sense Developer", "start": "2021-12", "end": "present", "responsibilities": [{"en": "Creating reports and data visualizations for internal clients", "pl": "Tworzenie raportów i wizualizacji dla klientów wewnętrznych"}, {"en": "Developing tools to improve Data Quality teams' efficiency (e.g. day-to-day data comparators, monitoring data volume changes)", "pl": "Opracowywanie narzędzi usprawniających pracę zespołów Data Quality (np. porównywarki danych dzień do dnia, monitorowanie zmian wolumenów)"}, {"en": "Building administrative tools (scheduler load overview, disk space monitoring, estimation of reload times for end-user applications)", "pl": "Tworzenie narzędzi administracyjnych (podgląd obciążenia schedulerów, monitorowanie przestrzeni dyskowej, szacowanie czasu przeładowań aplikacji końcowych)"}, {"en": "Diagnosing and fixing issues (including bugs after code changes, performance bottlenecks, RAM problems)", "pl": "Diagnozowanie i usuwanie błędów (m.in. błędy wynikające ze zmian w kodzie, wąskie gardła, problemy z pamięcią RAM)"}, {"en": "Designing and developing data models", "pl": "Budowa i rozwój modeli danych"}, {"en": "Optimizing report code to improve performance and reduce loading time", "pl": "Optymalizacja kodu w raportach w celu poprawy wydajności i skrócenia czasu ładowania"}, {"en": "Configuring alerts using the Alerting and NPrinting modules", "pl": "Konfiguracja alertów z wykorzystaniem modułów Alerting i NPrinting"}, {"en": "Preparing business analyses", "pl": "Przygotowywanie analiz biznesowych"}, {"en": "Maintaining and administering reporting applications", "pl": "Utrzymanie i administracja istniejących aplikacji raportowych"}, {"en": "End-user support (helpdesk) and communication with report users", "pl": "Wsparcie użytkowników końcowych (helpdesk) i kontakt z odbiorcami raportów"}, {"en": "Creating project documentation and user manuals", "pl": "Tworzenie dokumentacji projektowej i instrukcji użytkownika"}], "achievements": [{"en": "Implemented and maintained over 50 reports in SCM, Procurement, Commercial and Data Analysis areas", "pl": "Wdrożenie i utrzymanie ponad 50 raportów w obszarach SCM, Zakupy, Commercial, Analiza Danych"}, {"en": "Stabilized the ETL process for a key report (over 400M records, 150+ daily users, >10 GB of data); the report is ready before 9:00 AM every day", "pl": "Ustabilizowanie procesu ETL dla kluczowego raportu (ponad 400 mln rekordów, >150 użytkowników dziennie, >10 GB danych); raport gotowy codziennie do godziny 9:00"}, {"en": "Recommended migrating from the Alerting module to an NPrinting-based alerting solution, resulting in cost savings", "pl": "Rekomendacja migracji z modułu Alerting na rozwiązanie alertowania oparte o NPrinting, co przyniosło oszczędności"}]}]}, {"company": "Grupa Kęty S.A.", "team": {"en": "Production Planning Department, Advanced Aluminum Products Plant", "pl": "Dział Planowania Produkcji, Zakład Zaawansowanych Produktów Aluminiowych"}, "positions": [{"title": {"en": "Production Accounting Specialist", "pl": "Specjalista ds. rozliczania produkcji"}, "start": "2021-01", "end": "2021-12"}, {"title": {"en": "Logistics and Production Planning Coordinator", "pl": "Koordynator ds. logistyki i planowania produkcji"}, "start": "2015-09", "end": "2021-01"}, {"title": {"en": "Intern – Assistant Manager, Logistics and Planning Department", "pl": "Staż – Asystent kierownika w dziale logistyki i planowania"}, "start": "2015-04", "end": "2015-09"}], "responsibilities": [{"en": "Creating reports and SQL scripts", "pl": "Tworzenie raportów oraz skryptów w języku SQL"}, {"en": "Developing tools to support production supervision (VBA, PL/SQL)", "pl": "Tworzenie narzędzi usprawniających nadzór nad produkcją (VBA oraz PL/SQL)"}, {"en": "Long-term planning – analyzing customer plans against production capacity", "pl": "Planowanie długoterminowe – analiza planów klienta w oparciu o możliwości produkcyjne"}, {"en": "Preparing daily production schedules", "pl": "Tworzenie dobowych planów produkcji"}, {"en": "Supervising order execution for individual customers", "pl": "Nadzorowanie realizacji zamówień dla poszczególnych klientów"}, {"en": "Coordinating the internal logistics team and supervising inventory teams", "pl": "Koordynowanie zespołu logistyki wewnątrzzakładowej i nadzorowanie zespołów inwentaryzacyjnych"}, {"en": "Preparing production documentation", "pl": "Tworzenie dokumentacji produkcyjnej"}, {"en": "Production accounting – efficiency analysis", "pl": "Rozliczanie produkcji – analiza wydajności"}, {"en": "Managing warehouse stock levels", "pl": "Opieka nad stanami magazynowymi"}], "achievements": [{"en": "Implemented an application for monitoring production KPIs using SQL and MES software", "pl": "Wdrożenie aplikacji monitorującej wskaźniki produkcyjne przy wykorzystaniu języka SQL oraz oprogramowania klasy MES"}, {"en": "Implemented a tool for monitoring packaging stock levels", "pl": "Wdrożenie narzędzia pozwalającego nadzorować stan magazynowy opakowań"}, {"en": "Implemented a tool generating material orders based on the current production plan", "pl": "Wdrożenie narzędzia generującego zamówienia materiałowe według potrzeb bieżącego planu produkcyjnego"}]}], "skills": [{"category": {"en": "Data Engineering", "pl": "Data Engineering"}, "items": [{"name": "Databricks", "level": "junior"}, {"name": "Azure DevOps", "level": "junior"}]}, {"category": {"en": "BI & Reporting", "pl": "BI i raportowanie"}, "items": [{"name": "Qlik Sense", "level": "mid/senior"}, {"name": "QMC (Qlik Management Console)", "level": "mid/senior"}, {"name": "NPrinting", "level": "mid"}, {"name": "Qlik Alerting", "level": "mid"}, {"name": "Power BI", "level": "junior"}]}, {"category": {"en": "Languages & Code", "pl": "Języki i kod"}, "items": [{"name": "SQL", "level": "mid"}, {"name": "PL/SQL", "level": "mid"}, {"name": "Python", "level": "junior"}, {"name": "VBA", "level": "junior"}]}, {"category": {"en": "Tools", "pl": "Narzędzia"}, "items": [{"name": "Git", "level": "mid"}, {"name": "CSS", "level": "junior"}]}], "languages": [{"name": {"en": "Polish", "pl": "polski"}, "level": {"en": "native", "pl": "ojczysty"}}, {"name": {"en": "English", "pl": "angielski"}, "level": "B2"}], "education": [{"institution": {"en": "University of Economics in Katowice", "pl": "Uniwersytet Ekonomiczny w Katowicach"}, "area": {"en": "Machine Learning and Data Science", "pl": "Uczenie maszynowe i Data Science"}, "degree": {"en": "Postgraduate studies", "pl": "Studia podyplomowe"}, "end": 2024}, {"institution": {"en": "University of Bielsko-Biała", "pl": "Uniwersytet Bielsko-Bialski"}, "area": {"en": "Management and Production Engineering", "pl": "Zarządzanie i inżynieria produkcji"}, "degree": {"en": "Master's degree", "pl": "Studia II stopnia"}, "start": 2017, "end": 2019}, {"institution": {"en": "University of Bielsko-Biała", "pl": "Uniwersytet Bielsko-Bialski"}, "area": {"en": "Management and Production Engineering", "pl": "Zarządzanie i inżynieria produkcji"}, "degree": {"en": "Bachelor's degree", "pl": "Studia I stopnia"}, "start": 2010, "end": 2014}], "courses": [{"name": "SQL Fundamentals", "provider": "Dataquest"}, {"name": "Python: Basics for Data Analysis", "provider": "Dataquest"}, {"name": "Poznaj świat baz danych", "description": {"en": "SQL databases from scratch", "pl": "kurs baz danych SQL od podstaw"}}], "interests": {"en": ["Sports", "Programming", "Music", "Travelling"], "pl": ["Sport", "Programowanie", "Muzyka", "Podróże"]}}, "build": {"mode": "web", "generated": "2026-11-20", "pdf": {"en": "Michal_Tworowski_CV_EN.pdf", "pl": "Michal_Tworowski_CV_PL.pdf"}, "repo": "https://github.com/2rowski/cv_resume"}}</script>
+<script id="cv-data" type="application/json">{"cv": {"site": {"url": "https://2rowski.github.io/cv_resume/", "repo": "https://github.com/2rowski/cv_resume", "noindex": true}, "basics": {"name": "Michał Tworowski", "headline": "Qlik Sense Developer · Junior Data Engineer", "location": {"en": "Bielsko-Biała, Poland", "pl": "Bielsko-Biała"}, "linkedin": null, "github": "https://github.com/2rowski", "photo": "data:image/jpeg;base64,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", "summary": {"en": "I am a BI Developer with nearly five years of experience working with Qlik Sense at Grupa Maspex. Since April 2026, I have also been growing into data engineering, working with Databricks and Azure DevOps. Before that, I spent over six years in production planning and logistics at Grupa Kęty. That experience helps me understand business needs and turn them into practical analytics solutions. In my work, I focus on data quality and reliability, performance, and process stability.", "pl": "Jestem Developerem BI z blisko pięcioletnim doświadczeniem w pracy z Qlik Sense w Grupie Maspex.  Od kwietnia 2026 rozwijam się również w kierunku Data Engineeringu, pracując z Databricks i Azure DevOps.  Wcześniej przez ponad sześć lat zajmowałem się planowaniem produkcji i logistyką w Grupie Kęty.  To doświadczenie pomaga mi lepiej rozumieć potrzeby biznesu i przekładać je na praktyczne rozwiązania analityczne. W swojej pracy stawiam na jakość i wiarygodność danych, wydajność oraz stabilność procesów."}}, "highlights": {"feature": {"title": {"en": "Key report · ETL stabilization", "pl": "Kluczowy raport · stabilizacja ETL"}, "stages": [{"stage": {"en": "Data", "pl": "Dane"}, "value": "400M+", "label": {"en": "records, >10 GB", "pl": "rekordów, >10 GB"}}, {"stage": {"en": "ETL reload", "pl": "Przeładowanie ETL"}, "value": "<09:00", "label": {"en": "ready every day", "pl": "gotowe codziennie"}, "highlight": true}, {"stage": {"en": "Report", "pl": "Raport"}, "value": "150+", "label": {"en": "daily users", "pl": "użytkowników dziennie"}}]}, "tiles": [{"value": "50+", "label": {"en": "reports delivered and maintained", "pl": "wdrożonych i utrzymywanych raportów"}, "tags": ["SCM", {"en": "Procurement", "pl": "Zakupy"}, "Commercial", {"en": "Data Analysis", "pl": "Analiza Danych"}]}], "experience": {"label": {"en": "years of professional experience", "pl": "lat doświadczenia zawodowego"}, "tags": [{"en": "BI since 2021", "pl": "BI od 2021"}, {"en": "Data Engineering since 2026", "pl": "Data Engineering od 2026"}]}}, "work": [{"company": "Grupa Maspex sp. z o.o.", "positions": [{"title": "Junior Data Engineer", "start": "2026-04", "end": "present", "responsibilities": [{"en": "Building data pipelines on the Databricks platform", "pl": "Tworzenie przepływów danych na platformie Databricks"}, {"en": "Creating and automating processes, e.g. copying data between the PRD and TST landing zones", "pl": "Tworzenie i automatyzacja procesów, m.in. kopiowanie danych pomiędzy landing zone środowisk PRD i TST"}, {"en": "Working in the Azure DevOps environment", "pl": "Praca w środowisku Azure DevOps"}, {"en": "Creating technical documentation and standard operating procedures (SOPs)", "pl": "Tworzenie dokumentacji technicznej oraz procedur SOP"}], "achievements": []}, {"title": "Qlik Sense Developer", "start": "2021-12", "end": "present", "responsibilities": [{"en": "Creating reports and data visualizations for internal clients", "pl": "Tworzenie raportów i wizualizacji dla klientów wewnętrznych"}, {"en": "Developing tools to improve Data Quality teams' efficiency (e.g. day-to-day data comparators, monitoring data volume changes)", "pl": "Opracowywanie narzędzi usprawniających pracę zespołów Data Quality (np. porównywarki danych dzień do dnia, monitorowanie zmian wolumenów)"}, {"en": "Building administrative tools (scheduler load overview, disk space monitoring, estimation of reload times for end-user applications)", "pl": "Tworzenie narzędzi administracyjnych (podgląd obciążenia schedulerów, monitorowanie przestrzeni dyskowej, szacowanie czasu przeładowań aplikacji końcowych)"}, {"en": "Diagnosing and fixing issues (including bugs after code changes, performance bottlenecks, RAM problems)", "pl": "Diagnozowanie i usuwanie błędów (m.in. błędy wynikające ze zmian w kodzie, wąskie gardła, problemy z pamięcią RAM)"}, {"en": "Designing and developing data models", "pl": "Budowa i rozwój modeli danych"}, {"en": "Optimizing report code to improve performance and reduce loading time", "pl": "Optymalizacja kodu w raportach w celu poprawy wydajności i skrócenia czasu ładowania"}, {"en": "Configuring alerts using the Alerting and NPrinting modules", "pl": "Konfiguracja alertów z wykorzystaniem modułów Alerting i NPrinting"}, {"en": "Preparing business analyses", "pl": "Przygotowywanie analiz biznesowych"}, {"en": "Maintaining and administering reporting applications", "pl": "Utrzymanie i administracja istniejących aplikacji raportowych"}, {"en": "End-user support (helpdesk) and communication with report users", "pl": "Wsparcie użytkowników końcowych (helpdesk) i kontakt z odbiorcami raportów"}, {"en": "Creating project documentation and user manuals", "pl": "Tworzenie dokumentacji projektowej i instrukcji użytkownika"}], "achievements": [{"en": "Implemented and maintained over 50 reports in SCM, Procurement, Commercial and Data Analysis areas", "pl": "Wdrożenie i utrzymanie ponad 50 raportów w obszarach SCM, Zakupy, Commercial, Analiza Danych"}, {"en": "Stabilized the ETL process for a key report (over 400M records, 150+ daily users, >10 GB of data); the report is ready before 9:00 AM every day", "pl": "Ustabilizowanie procesu ETL dla kluczowego raportu (ponad 400 mln rekordów, >150 użytkowników dziennie, >10 GB danych); raport gotowy codziennie do godziny 9:00"}, {"en": "Recommended migrating from the Alerting module to an NPrinting-based alerting solution, resulting in cost savings", "pl": "Rekomendacja migracji z modułu Alerting na rozwiązanie alertowania oparte o NPrinting, co przyniosło oszczędności"}]}]}, {"company": "Grupa Kęty S.A.", "team": {"en": "Production Planning Department, Advanced Aluminum Products Plant", "pl": "Dział Planowania Produkcji, Zakład Zaawansowanych Produktów Aluminiowych"}, "positions": [{"title": {"en": "Production Accounting Specialist", "pl": "Specjalista ds. rozliczania produkcji"}, "start": "2021-01", "end": "2021-12"}, {"title": {"en": "Logistics and Production Planning Coordinator", "pl": "Koordynator ds. logistyki i planowania produkcji"}, "start": "2015-09", "end": "2021-01"}, {"title": {"en": "Intern – Assistant Manager, Logistics and Planning Department", "pl": "Staż – Asystent kierownika w dziale logistyki i planowania"}, "start": "2015-04", "end": "2015-09"}], "responsibilities": [{"en": "Creating reports and SQL scripts", "pl": "Tworzenie raportów oraz skryptów w języku SQL"}, {"en": "Developing tools to support production supervision (VBA, PL/SQL)", "pl": "Tworzenie narzędzi usprawniających nadzór nad produkcją (VBA oraz PL/SQL)"}, {"en": "Long-term planning – analyzing customer plans against production capacity", "pl": "Planowanie długoterminowe – analiza planów klienta w oparciu o możliwości produkcyjne"}, {"en": "Preparing daily production schedules", "pl": "Tworzenie dobowych planów produkcji"}, {"en": "Supervising order execution for individual customers", "pl": "Nadzorowanie realizacji zamówień dla poszczególnych klientów"}, {"en": "Coordinating the internal logistics team and supervising inventory teams", "pl": "Koordynowanie zespołu logistyki wewnątrzzakładowej i nadzorowanie zespołów inwentaryzacyjnych"}, {"en": "Preparing production documentation", "pl": "Tworzenie dokumentacji produkcyjnej"}, {"en": "Production accounting – efficiency analysis", "pl": "Rozliczanie produkcji – analiza wydajności"}, {"en": "Managing warehouse stock levels", "pl": "Opieka nad stanami magazynowymi"}], "achievements": [{"en": "Implemented an application for monitoring production KPIs using SQL and MES software", "pl": "Wdrożenie aplikacji monitorującej wskaźniki produkcyjne przy wykorzystaniu języka SQL oraz oprogramowania klasy MES"}, {"en": "Implemented a tool for monitoring packaging stock levels", "pl": "Wdrożenie narzędzia pozwalającego nadzorować stan magazynowy opakowań"}, {"en": "Implemented a tool generating material orders based on the current production plan", "pl": "Wdrożenie narzędzia generującego zamówienia materiałowe według potrzeb bieżącego planu produkcyjnego"}]}], "skills": [{"category": {"en": "Data Engineering", "pl": "Data Engineering"}, "items": [{"name": "Databricks", "level": "junior"}, {"name": "Azure DevOps", "level": "junior"}]}, {"category": {"en": "BI & Reporting", "pl": "BI i raportowanie"}, "items": [{"name": "Qlik Sense", "level": "mid/senior"}, {"name": "QMC (Qlik Management Console)", "level": "mid/senior"}, {"name": "NPrinting", "level": "mid"}, {"name": "Qlik Alerting", "level": "mid"}, {"name": "Power BI", "level": "mid"}]}, {"category": {"en": "Languages & Code", "pl": "Języki i kod"}, "items": [{"name": "SQL", "level": "mid"}, {"name": "PL/SQL", "level": "mid"}, {"name": "Python", "level": "junior"}, {"name": "VBA", "level": "junior"}]}, {"category": {"en": "Tools", "pl": "Narzędzia"}, "items": [{"name": "Git", "level": "mid"}, {"name": "HTML", "level": "junior"}, {"name": "CSS", "level": "junior"}]}], "languages": [{"name": {"en": "Polish", "pl": "polski"}, "level": {"en": "native", "pl": "ojczysty"}}, {"name": {"en": "English", "pl": "angielski"}, "level": "B2"}], "education": [{"institution": {"en": "University of Economics in Katowice", "pl": "Uniwersytet Ekonomiczny w Katowicach"}, "area": {"en": "Machine Learning and Data Science", "pl": "Uczenie maszynowe i Data Science"}, "degree": {"en": "Postgraduate studies", "pl": "Studia podyplomowe"}, "end": 2024}, {"institution": {"en": "University of Bielsko-Biała", "pl": "Uniwersytet Bielsko-Bialski"}, "area": {"en": "Management and Production Engineering", "pl": "Zarządzanie i inżynieria produkcji"}, "degree": {"en": "Master's degree", "pl": "Studia II stopnia"}, "start": 2017, "end": 2019}, {"institution": {"en": "University of Bielsko-Biała", "pl": "Uniwersytet Bielsko-Bialski"}, "area": {"en": "Management and Production Engineering", "pl": "Zarządzanie i inżynieria produkcji"}, "degree": {"en": "Bachelor's degree", "pl": "Studia I stopnia"}, "start": 2010, "end": 2014}], "courses": [{"name": "SQL Fundamentals", "provider": "Dataquest"}, {"name": "Python: Basics for Data Analysis", "provider": "Dataquest"}, {"name": "Poznaj świat baz danych", "description": {"en": "SQL databases from scratch", "pl": "kurs baz danych SQL od podstaw"}}], "interests": {"en": ["Sports", "Programming", "Music", "Travelling"], "pl": ["Sport", "Programowanie", "Muzyka", "Podróże"]}}, "build": {"mode": "web", "generated": "2026-11-20", "pdf": {"en": "Michal_Tworowski_CV_EN.pdf", "pl": "Michal_Tworowski_CV_PL.pdf"}, "repo": "https://github.com/2rowski/cv_resume", "email": "bHAucG9AaWtzd29yb3d0LmxhaGNpbQ=="}}</script>
 <script>
 (() => {
   'use strict';
@@ -470,7 +523,8 @@ h5 {
       skills: 'Skills', languages: 'Languages', education: 'Education', courses: 'Courses',
       interests: 'Interests', present: 'present', download: 'Download PDF', copy: 'Copy',
       copied: 'Copied', updated: 'Last updated', source: 'Built from cv.yaml', langGroup: 'Language',
-      email: 'Email', phone: 'Phone', location: 'Based in'
+      email: 'Email', phone: 'Phone', location: 'Based in',
+      themeDark: 'Switch to dark theme', themeLight: 'Switch to light theme'
     },
     pl: {
       profile: 'Profil', figures: 'Wybrane wyniki', timeline: 'Przebieg kariery',
@@ -480,7 +534,8 @@ h5 {
       skills: 'Umiejętności', languages: 'Języki', education: 'Wykształcenie', courses: 'Kursy',
       interests: 'Zainteresowania', present: 'obecnie', download: 'Pobierz PDF', copy: 'Kopiuj',
       copied: 'Skopiowano', updated: 'Ostatnia aktualizacja', source: 'Generowane z cv.yaml', langGroup: 'Język',
-      email: 'E-mail', phone: 'Telefon', location: 'Lokalizacja'
+      email: 'E-mail', phone: 'Telefon', location: 'Lokalizacja',
+      themeDark: 'Włącz ciemny motyw', themeLight: 'Włącz jasny motyw'
     }
   };
   const MONTHS_EN = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
@@ -546,18 +601,22 @@ h5 {
   }
   // Past roles count both the first and the last month; current roles count elapsed months.
   const durationMonths = (p) => isPresent(p) ? NOW_IDX - monthIdx(p.start) : monthIdx(p.end) - monthIdx(p.start) + 1;
+  // Polish plural forms: 1 rok / 2–4 lata / 5+ lat (12–14 take the "many" form)
+  function plural(n, one, few, many) {
+    if (n === 1) return one;
+    const d = n % 10, t = n % 100;
+    return d >= 2 && d <= 4 && (t < 12 || t > 14) ? few : many;
+  }
   function fmtDuration(n) {
-    const y = Math.floor(n / 12), m = n % 12;
+    const y = Math.floor(n / 12);
+    const m = y ? n % 12 : Math.max(n % 12, 1);
     const parts = [];
     if (lang === 'pl') {
-      if (y) {
-        const word = y === 1 ? 'rok' : ([2, 3, 4].includes(y % 10) && ![12, 13, 14].includes(y % 100)) ? 'lata' : 'lat';
-        parts.push(`${y} ${word}`);
-      }
-      if (m || !y) parts.push(`${Math.max(m, 1)} mies.`);
+      if (y) parts.push(`${y} ${plural(y, 'rok', 'lata', 'lat')}`);
+      if (m) parts.push(`${m} ${plural(m, 'miesiąc', 'miesiące', 'miesięcy')}`);
     } else {
-      if (y) parts.push(`${y} yr${y > 1 ? 's' : ''}`);
-      if (m || !y) parts.push(`${Math.max(m, 1)} mo${Math.max(m, 1) > 1 ? 's' : ''}`);
+      if (y) parts.push(`${y} ${y === 1 ? 'year' : 'years'}`);
+      if (m) parts.push(`${m} ${m === 1 ? 'month' : 'months'}`);
     }
     return parts.join(' ');
   }
@@ -578,7 +637,10 @@ h5 {
 
     const items = [];
     if (b.location) items.push(h('li', null, tr(b.location)));
-    if (b.email) {
+    // The address ships reversed and base64-encoded, so scrapers reading the raw HTML don't find it.
+    let email = '';
+    try { email = build.email ? atob(build.email).split('').reverse().join('') : ''; } catch (e) { email = ''; }
+    if (email) {
       const copyBtn = isPrint ? null : h('button', { type: 'button', class: 'copy' }, ui().copy);
       if (copyBtn) {
         copyBtn.addEventListener('click', () => {
@@ -591,11 +653,11 @@ h5 {
             sel.addRange(rng);
           };
           try {
-            navigator.clipboard.writeText(b.email).then(done, fallback);
+            navigator.clipboard.writeText(email).then(done, fallback);
           } catch (e) { fallback(); }
         });
       }
-      items.push(h('li', null, h('a', { href: `mailto:${b.email}` }, b.email), copyBtn));
+      items.push(h('li', null, h('a', { href: `mailto:${email}` }, email), copyBtn));
     }
     if (build.phone) items.push(h('li', null, h('span', { class: 'k' }, ui().phone), build.phone));
     const link = (url, label) => {
@@ -613,12 +675,53 @@ h5 {
     $('pdf-label').textContent = ui().download;
   }
 
+  const ARROW = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6l6 6-6 6"/></svg>';
+  function renderFeature(f) {
+    const nodes = [];
+    (f.stages || []).forEach((s, i) => {
+      if (i > 0) {
+        const arrow = h('div', { class: 'arr', 'aria-hidden': 'true' });
+        arrow.innerHTML = ARROW;
+        nodes.push(arrow);
+      }
+      nodes.push(h('div', { class: s.highlight ? 'node hl' : 'node' },
+        h('div', { class: 'node-k' }, tr(s.stage)),
+        h('div', { class: 'kpi-val' }, s.value),
+        h('div', { class: 'kpi-lbl' }, tr(s.label))
+      ));
+    });
+    return h('div', { class: 'kpi kpi-feature' },
+      h('div', { class: 'kpi-eyebrow' }, tr(f.title)),
+      h('div', { class: 'flow' }, nodes)
+    );
+  }
+
   function renderIntro() {
-    $('summary').textContent = tr(cv.basics.summary);
-    $('summary').parentElement.hidden = !tr(cv.basics.summary);
-    $('figs').replaceChildren(...(cv.highlights || []).map((f) =>
-      h('div', { class: 'fig' }, h('div', { class: 'fig-val' }, f.value), h('div', { class: 'fig-lbl' }, tr(f.label)))
+    const summary = tr(cv.basics.summary);
+    $('summary').textContent = summary;
+    $('summary-sec').hidden = !summary;
+
+    const hl = cv.highlights || {};
+    const cards = [];
+    if (hl.feature) cards.push(renderFeature(hl.feature));
+    (hl.tiles || []).forEach((t) => cards.push(
+      h('div', { class: 'kpi' },
+        h('div', { class: 'kpi-val' }, t.value),
+        h('div', { class: 'kpi-lbl' }, tr(t.label)),
+        t.tags ? h('div', { class: 'chips' }, t.tags.map((x) => h('span', { class: 'chip' }, tr(x)))) : null
+      )
     ));
+    if (hl.experience) {
+      // Years since the earliest role in the work history, counted on the day the page is opened
+      const first = Math.min(...cv.work.flatMap((w) => w.positions).map((p) => monthIdx(p.start)));
+      const years = Math.floor((NOW_IDX - first) / 12);
+      cards.push(h('div', { class: 'kpi' },
+        h('div', { class: 'kpi-val' }, `${years}+`),
+        h('div', { class: 'kpi-lbl' }, tr(hl.experience.label)),
+        hl.experience.tags ? h('div', { class: 'chips' }, hl.experience.tags.map((x) => h('span', { class: 'chip' }, tr(x)))) : null
+      ));
+    }
+    $('figs').replaceChildren(...cards);
   }
 
   function renderTimeline() {
@@ -735,8 +838,34 @@ h5 {
     if (build.gdpr) gdpr.textContent = tr(cv.gdpr_clause);
   }
 
+  /* ---------- theme: dark by default, light on request; print is always light ---------- */
+  const isTheme = (v) => v === 'light' || v === 'dark';
+  function pickTheme() {
+    if (isPrint) return 'light';
+    let q = null;
+    try { q = new URLSearchParams(location.search).get('theme'); } catch (e) { /* ignore */ }
+    if (isTheme(q)) return q;
+    const saved = storage.get('cv-theme');
+    return isTheme(saved) ? saved : 'dark';
+  }
+  let theme = pickTheme();
+  function applyTheme() {
+    document.documentElement.setAttribute('data-theme', theme);
+    const btn = $('theme-btn');
+    btn.setAttribute('aria-pressed', String(theme === 'dark'));
+    const label = theme === 'dark' ? ui().themeLight : ui().themeDark;
+    btn.setAttribute('aria-label', label);
+    btn.title = label;
+  }
+  $('theme-btn').addEventListener('click', () => {
+    theme = theme === 'dark' ? 'light' : 'dark';
+    storage.set('cv-theme', theme);
+    applyTheme();
+  });
+
   function render() {
     document.documentElement.lang = lang;
+    applyTheme();
     document.querySelectorAll('[data-i18n]').forEach((el) => { el.textContent = ui()[el.dataset.i18n] || ''; });
     $('lang-group').setAttribute('aria-label', ui().langGroup);
     ['en', 'pl'].forEach((l) => $(`lang-${l}`).setAttribute('aria-pressed', String(l === lang)));

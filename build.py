@@ -82,6 +82,7 @@ def render(cv: dict, build: dict, *, full_document: bool) -> str:
 
     site = cv.get("site") or {}
     lang = build.get("lang") or "en"
+    theme = "light" if build.get("mode") == "print" else "dark"  # strona startuje w ciemnym motywie, druk zawsze jasny
     description = html.escape(" ".join(tr(cv["basics"].get("summary"), lang).split()), quote=True)
     meta = [
         '<meta charset="utf-8">',
@@ -97,7 +98,7 @@ def render(cv: dict, build: dict, *, full_document: bool) -> str:
     if site.get("noindex", True):
         meta.append('<meta name="robots" content="noindex, nofollow">')
     return (
-        f'<!doctype html>\n<html lang="{lang}">\n<head>\n'
+        f'<!doctype html>\n<html lang="{lang}" data-theme="{theme}">\n<head>\n'
         + "\n".join(meta)
         + "\n"
         + head.strip()
@@ -149,6 +150,12 @@ def main() -> int:
     cv = load_yaml(ROOT / "cv.yaml")
     private = load_yaml(ROOT / "private.yaml")
 
+    # E-mail: z private.yaml (poza repozytorium), na stronie zapisany od tyłu i w base64,
+    # żeby boty czytające surowy HTML go nie znalazły. Strona dekoduje go w przeglądarce.
+    email = private.get("email") or cv["basics"].get("email")
+    cv["basics"].pop("email", None)
+    email_enc = base64.b64encode(email[::-1].encode()).decode() if email else None
+
     photo = cv["basics"].get("photo")
     if photo:
         cv["basics"]["photo"] = data_uri(ROOT / photo)
@@ -161,7 +168,7 @@ def main() -> int:
     # Strona WWW: bez telefonu i bez klauzuli RODO
     web_cv = copy.deepcopy(cv)
     web_cv.pop("gdpr_clause", None)
-    web_build = {"mode": "web", "generated": today, "pdf": pdf_names, "repo": repo}
+    web_build = {"mode": "web", "generated": today, "pdf": pdf_names, "repo": repo, "email": email_enc}
 
     DOCS.mkdir(exist_ok=True)
     (DOCS / ".nojekyll").write_text("", encoding="utf-8")
@@ -187,7 +194,7 @@ def main() -> int:
     ]
     for target, phone in variants:
         for lang in LANGS:
-            build = {"mode": "print", "lang": lang, "generated": today, "phone": phone, "gdpr": True}
+            build = {"mode": "print", "lang": lang, "generated": today, "phone": phone, "gdpr": True, "email": email_enc}
             html_path = BUILD / f"print-{target.name}-{lang}.html"
             html_path.write_text(render(cv, build, full_document=True), encoding="utf-8")
             pdf_path = target / pdf_names[lang]

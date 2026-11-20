@@ -23,10 +23,17 @@ python -m venv .venv
 .venv\Scripts\python -m pip install -r requirements.txt
 ```
 
-Telefon trzymany jest w `private.yaml` (poza repozytorium):
+Telefon i e-mail są w `private.yaml` (poza repozytorium). Telefon trafia tylko do PDF-ów w `out/`, a e-mail na stronę w postaci zakodowanej, żeby nie zbierały go boty:
 
 ```yaml
 phone: "+48 ..."
+email: adres@example.com
 ```
 
 PDF-y drukuje zainstalowana przeglądarka Edge lub Chrome w trybie headless.
+
+## Prawa / Rights
+
+Treść CV, zdjęcie i dane osobowe w tym repozytorium należą do Michała Tworowskiego. Nie są udostępnione na żadnej wolnej licencji: możesz je przeglądać, ale nie kopiuj ich, nie modyfikuj ani nie publikuj w innym miejscu bez zgody.
+
+The CV content, photo and personal data in this repository belong to Michał Tworowski. They are not released under any open licence: you may view them, but please do not copy, modify or republish them without permission.

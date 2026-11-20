@@ -19,46 +19,63 @@ site:
 basics:
   name: Michał Tworowski
   headline: Qlik Sense Developer · Junior Data Engineer
-  email: michal.tworowski@op.pl
+  # e-mail jest w private.yaml – na stronie trafia zakodowany, żeby nie zbierały go boty
   location:
     en: Bielsko-Biała, Poland
     pl: Bielsko-Biała
   linkedin:        # opcjonalnie: pełny link do profilu
   github: https://github.com/2rowski
-  photo: assets/photo.jpg
-  # PROPOZYCJA – do akceptacji / poprawy
+  photo: assets/photo-studio.jpg   # oryginał: assets/photo.jpg
   summary:
     en: >-
-      BI developer with nearly five years of Qlik Sense experience at Grupa Maspex,
-      since April 2026 also working as a Junior Data Engineer on Databricks and Azure DevOps.
-      Before moving into data, I spent over six years in production planning and logistics
-      at Grupa Kęty, so I build reports and data flows with the business user in mind.
-      I focus on reliable data processes, performance and data quality.
+      I am a BI Developer with nearly five years of experience working with Qlik Sense at Grupa Maspex.
+      Since April 2026, I have also been growing into data engineering, working with Databricks and Azure DevOps.
+      Before that, I spent over six years in production planning and logistics at Grupa Kęty.
+      That experience helps me understand business needs and turn them into practical analytics solutions.
+      In my work, I focus on data quality and reliability, performance, and process stability.
     pl: >-
-      Developer BI z blisko pięcioletnim doświadczeniem w Qlik Sense w Grupie Maspex,
-      od kwietnia 2026 także Junior Data Engineer (Databricks, Azure DevOps).
-      Wcześniej ponad sześć lat w planowaniu produkcji i logistyce w Grupie Kęty –
-      dzięki temu projektuję raporty i przepływy danych z perspektywy ich odbiorców.
-      Skupiam się na niezawodności procesów danych, wydajności i jakości danych.
+      Jestem Developerem BI z blisko pięcioletnim doświadczeniem w pracy z Qlik Sense w Grupie Maspex. 
+      Od kwietnia 2026 rozwijam się również w kierunku Data Engineeringu, pracując z Databricks i Azure DevOps. 
+      Wcześniej przez ponad sześć lat zajmowałem się planowaniem produkcji i logistyką w Grupie Kęty. 
+      To doświadczenie pomaga mi lepiej rozumieć potrzeby biznesu i przekładać je na praktyczne rozwiązania analityczne.
+      W swojej pracy stawiam na jakość i wiarygodność danych, wydajność oraz stabilność procesów.
 
-# Liczby do kafelków na stronie (z osiągnięć poniżej)
+# Sekcja "Wybrane wyniki" na stronie (liczby z osiągnięć poniżej)
 highlights:
-  - value: "50+"
+  feature:                     # duża karta: kluczowy raport jako przepływ danych (etapy od lewej)
+    title:
+      en: Key report · ETL stabilization
+      pl: Kluczowy raport · stabilizacja ETL
+    stages:
+      - stage: { en: Data, pl: Dane }
+        value: "400M+"
+        label:
+          en: "records, >10 GB"
+          pl: "rekordów, >10 GB"
+      - stage: { en: ETL reload, pl: Przeładowanie ETL }
+        value: "<09:00"
+        label: { en: ready every day, pl: gotowe codziennie }
+        highlight: true        # wyróżniony etap
+      - stage: { en: Report, pl: Raport }
+        value: "150+"
+        label: { en: daily users, pl: użytkowników dziennie }
+  tiles:
+    - value: "50+"
+      label:
+        en: reports delivered and maintained
+        pl: wdrożonych i utrzymywanych raportów
+      tags:
+        - SCM
+        - { en: Procurement, pl: Zakupy }
+        - Commercial
+        - { en: Data Analysis, pl: Analiza Danych }
+  experience:                  # liczba lat liczy się sama od najstarszego stanowiska
     label:
-      en: reports delivered and maintained
-      pl: wdrożonych i utrzymywanych raportów
-  - value: "400M+"
-    label:
-      en: records in a key report's ETL
-      pl: rekordów w ETL kluczowego raportu
-  - value: "150+"
-    label:
-      en: daily users of that report
-      pl: użytkowników tego raportu dziennie
-  - value: ">10 GB"
-    label:
-      en: of data, ready before 9:00 AM every day
-      pl: danych, gotowych codziennie przed 9:00
+      en: years of professional experience
+      pl: lat doświadczenia zawodowego
+    tags:
+      - { en: BI since 2021, pl: BI od 2021 }
+      - { en: Data Engineering since 2026, pl: Data Engineering od 2026 }
 
 work:
   - company: Grupa Maspex sp. z o.o.
@@ -175,7 +192,7 @@ skills:
       - { name: QMC (Qlik Management Console), level: mid/senior }
       - { name: NPrinting, level: mid }
       - { name: Qlik Alerting, level: mid }
-      - { name: Power BI, level: junior }
+      - { name: Power BI, level: mid }
   - category:
       en: Languages & Code
       pl: Języki i kod
@@ -189,6 +206,7 @@ skills:
       pl: Narzędzia
     items:
       - { name: Git, level: mid }
+      - { name: HTML, level: junior }
       - { name: CSS, level: junior }
 
 languages:
