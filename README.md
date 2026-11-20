@@ -1,5 +1,7 @@
 # CV – Michał Tworowski
 
+**Strona:** https://2rowski.github.io/cv_resume/
+
 Strona CV (EN/PL) i PDF-y generowane z jednego pliku: [`cv.yaml`](cv.yaml).
 
 ## Jak zaktualizować CV

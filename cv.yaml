@@ -12,6 +12,8 @@
 
 # Ustawienia strony WWW
 site:
+  url: https://2rowski.github.io/cv_resume/
+  repo: https://github.com/2rowski/cv_resume
   noindex: true    # true = strona nie pojawi się w Google (dostęp tylko z linku). Zmień na false, gdy szukasz otwarcie.
 
 basics:
@@ -22,7 +24,7 @@ basics:
     en: Bielsko-Biała, Poland
     pl: Bielsko-Biała
   linkedin:        # opcjonalnie: pełny link do profilu
-  github:          # uzupełnimy po założeniu konta
+  github: https://github.com/2rowski
   photo: assets/photo.jpg
   # PROPOZYCJA – do akceptacji / poprawy
   summary:

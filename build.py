@@ -91,6 +91,9 @@ def render(cv: dict, build: dict, *, full_document: bool) -> str:
         f'<meta property="og:title" content="{html.escape(cv["basics"]["name"])} – CV">',
         f'<meta property="og:description" content="{description}">',
     ]
+    if site.get("url"):
+        meta.append(f'<meta property="og:url" content="{html.escape(site["url"], quote=True)}">')
+        meta.append(f'<link rel="canonical" href="{html.escape(site["url"], quote=True)}">')
     if site.get("noindex", True):
         meta.append('<meta name="robots" content="noindex, nofollow">')
     return (
@@ -153,8 +156,7 @@ def main() -> int:
     today = dt.date.today().isoformat()
     base = slug(cv["basics"]["name"])
     pdf_names = {lang: f"{base}_CV_{lang.upper()}.pdf" for lang in LANGS}
-    github = cv["basics"].get("github")
-    repo = f"{github.rstrip('/')}/cv" if github else None
+    repo = (cv.get("site") or {}).get("repo")
 
     # Strona WWW: bez telefonu i bez klauzuli RODO
     web_cv = copy.deepcopy(cv)
