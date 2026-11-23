@@ -32,6 +32,14 @@ email: adres@example.com
 
 PDF-y drukuje zainstalowana przeglądarka Edge lub Chrome w trybie headless.
 
+## Licznik odwiedzających
+
+Stopka strony pokazuje liczbę odwiedzających z [GoatCounter](https://www.goatcounter.com) (bez cookies). Kod konta jest w `cv.yaml` → `site.goatcounter`; pusta wartość wyłącza licznik. W ustawieniach GoatCounter musi być włączone „Allow adding visitor counts on your website”. Liczba odświeża się z opóźnieniem do 4 godzin.
+
+Żeby nie liczyć własnych wejść:
+- w GoatCounter → Settings → Tracking → *Ignore IPs* dodaj swój adres IP (przycisk „add your current IP”),
+- w każdej przeglądarce, której używasz (też na telefonie), otwórz raz `https://2rowski.github.io/cv_resume/#toggle-goatcounter` i potwierdź, że ta przeglądarka ma być pomijana.
+
 ## Prawa / Rights
 
 Treść CV, zdjęcie i dane osobowe w tym repozytorium należą do Michała Tworowskiego. Nie są udostępnione na żadnej wolnej licencji: możesz je przeglądać, ale nie kopiuj ich, nie modyfikuj ani nie publikuj w innym miejscu bez zgody.

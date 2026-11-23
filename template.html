@@ -521,7 +521,7 @@ h5 {
       skills: 'Skills', languages: 'Languages', education: 'Education', courses: 'Courses',
       interests: 'Interests', present: 'present', download: 'Download PDF', copy: 'Copy',
       copied: 'Copied', updated: 'Last updated', source: 'Built from cv.yaml', langGroup: 'Language',
-      email: 'Email', phone: 'Phone', location: 'Based in',
+      email: 'Email', phone: 'Phone', location: 'Based in', visitors: 'Visitors',
       themeDark: 'Switch to dark theme', themeLight: 'Switch to light theme'
     },
     pl: {
@@ -532,7 +532,7 @@ h5 {
       skills: 'Umiejętności', languages: 'Języki', education: 'Wykształcenie', courses: 'Kursy',
       interests: 'Zainteresowania', present: 'obecnie', download: 'Pobierz PDF', copy: 'Kopiuj',
       copied: 'Skopiowano', updated: 'Ostatnia aktualizacja', source: 'Generowane z cv.yaml', langGroup: 'Język',
-      email: 'E-mail', phone: 'Telefon', location: 'Lokalizacja',
+      email: 'E-mail', phone: 'Telefon', location: 'Lokalizacja', visitors: 'Odwiedzający',
       themeDark: 'Włącz ciemny motyw', themeLight: 'Włącz jasny motyw'
     }
   };
@@ -828,8 +828,22 @@ h5 {
     $('interests').textContent = interests.join(' · ');
   }
 
+  /* Visitor count from GoatCounter (web only). Own visits are excluded on GoatCounter's side
+     (ignored IPs, #toggle-goatcounter); if the counter can't be reached the footer simply omits it. */
+  let visitors = Number.isFinite(build.visitors_sample) ? build.visitors_sample : null;
+  if (build.stats && !isPrint && window.fetch) {
+    fetch(`${build.stats}/counter/TOTAL.json`)
+      .then((r) => (r.ok ? r.json() : null))
+      .then((d) => {
+        const n = d ? Number(String(d.count).replace(/\D/g, '')) : 0;
+        if (n > 0) { visitors = n; renderFooter(); }
+      })
+      .catch(() => { /* counter unavailable */ });
+  }
+
   function renderFooter() {
     const parts = [h('span', null, `${ui().updated}: ${fmtGenerated(build.generated)}`)];
+    if (visitors !== null) parts.push(h('span', null, `${ui().visitors}: ${visitors.toLocaleString(lang === 'pl' ? 'pl-PL' : 'en-GB')}`));
     if (build.repo) parts.push(h('a', { href: build.repo, target: '_blank', rel: 'noopener' }, ui().source));
     $('foot').replaceChildren(...parts);
 

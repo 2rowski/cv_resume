@@ -98,6 +98,10 @@ def render(cv: dict, build: dict, *, full_document: bool) -> str:
         meta.append(f'<link rel="canonical" href="{html.escape(site["url"], quote=True)}">')
     if site.get("noindex", True):
         meta.append('<meta name="robots" content="noindex, nofollow">')
+    if build.get("mode") == "web" and build.get("stats"):
+        # GoatCounter: liczy odwiedziny bez cookies; wejścia z localhost/file:// pomija sam
+        stats = html.escape(build["stats"], quote=True)
+        meta.append(f'<script data-goatcounter="{stats}/count" async src="https://gc.zgo.at/count.js"></script>')
     return (
         f'<!doctype html>\n<html lang="{lang}" data-theme="{theme}">\n<head>\n'
         + "\n".join(meta)
@@ -180,20 +184,23 @@ def main() -> int:
     base = slug(cv["basics"]["name"])
     pdf_names = {lang: f"{base}_CV_{lang.upper()}.pdf" for lang in LANGS}
     repo = (cv.get("site") or {}).get("repo")
+    counter = (cv.get("site") or {}).get("goatcounter")
+    stats = f"https://{counter}.goatcounter.com" if counter else None
 
     # Strona WWW: bez telefonu i bez klauzuli RODO
     web_cv = copy.deepcopy(cv)
     web_cv.pop("gdpr_clause", None)
-    web_build = {"mode": "web", "generated": today, "pdf": pdf_names, "repo": repo, "email": email_enc}
+    web_build = {"mode": "web", "generated": today, "pdf": pdf_names, "repo": repo, "email": email_enc, "stats": stats}
 
     DOCS.mkdir(exist_ok=True)
     (DOCS / ".nojekyll").write_text("", encoding="utf-8")
     (DOCS / "index.html").write_text(render(web_cv, web_build, full_document=True), encoding="utf-8")
     print("OK  docs/index.html")
 
-    # Podgląd na claude.ai (fragment HTML, bez przycisku PDF – tam pobieranie plików nie działa)
+    # Podgląd na claude.ai (fragment HTML, bez przycisku PDF – tam pobieranie plików nie działa;
+    # licznik nie łączy się z GoatCounter, tylko pokazuje przykładową liczbę)
     BUILD.mkdir(exist_ok=True)
-    preview_build = {**web_build, "pdf": None}
+    preview_build = {**web_build, "pdf": None, "stats": None, "visitors_sample": 128 if stats else None}
     (BUILD / "preview-fragment.html").write_text(render(web_cv, preview_build, full_document=False), encoding="utf-8")
 
     if args.no_pdf:
